@@ -1,3 +1,6 @@
 @import "compass";
 @import "theme_variables";
 
+@include fontFace('helveticaneuecyr-black');
+@include fontFace('helveticaneuecyr-light');
+@include fontFace('helveticaneuecyr-medium');

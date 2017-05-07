@@ -45,18 +45,40 @@ $(document).ready(function(){
 	else
 		$('#homepage-slider').addClass('col-xs-12');
 
-	if (!!$.prototype.bxSlider)
-		$('#homeslider').bxSlider({
-			useCSS: false,
-			maxSlides: 1,
-			slideWidth: homeslider_width,
-			infiniteLoop: homeslider_loop,
-			hideControlOnEnd: true,
-			pager: false,
-			autoHover: true,
-			auto: homeslider_loop,
-			speed: parseInt(homeslider_speed),
-			pause: homeslider_pause,
-			controls: true
-		});
+	if (!!$.prototype.slick)
+		$('#homeslider').slick({
+            dots: true,
+            arrows: false,
+            infinite: !!homeslider_loop,
+            autoplay: !!homeslider_loop,
+            autoplaySpeed: parseInt(homeslider_speed),
+            speed: homeslider_pause,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            // responsive: [
+            //     {
+            //         breakpoint: 1024,
+            //         settings: {
+            //             slidesToShow: 3,
+            //             slidesToScroll: 3,
+            //             infinite: true,
+            //             dots: true
+            //         }
+            //     },
+            //     {
+            //         breakpoint: 600,
+            //         settings: {
+            //             slidesToShow: 2,
+            //             slidesToScroll: 2
+            //         }
+            //     },
+            //     {
+            //         breakpoint: 480,
+            //         settings: {
+            //             slidesToShow: 1,
+            //             slidesToScroll: 1
+            //         }
+            //     }
+            // ]
+        });
 });
