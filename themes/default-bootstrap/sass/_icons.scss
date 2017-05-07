@@ -1,5 +1,71 @@
 //icons
 
+// sprite
+@import "sprite";
+
+.applicability_1 {
+	@include sprite($applicability_1);
+}
+.applicability_2 {
+	@include sprite($applicability_2);
+}
+.applicability_3 {
+	@include sprite($applicability_3);
+}
+.axis_1 {
+	@include sprite($axis_1);
+}
+.axis_2 {
+	@include sprite($axis_2);
+}
+.axis_3 {
+	@include sprite($axis_3);
+}
+.big_truck-light-icon {
+	@include sprite($big_truck-light-icon);
+}
+.car-icon {
+	@include sprite($car-icon);
+}
+.car-light-icon {
+	@include sprite($car-light-icon);
+}
+.car-switcher__input_car:checked + .icon,
+.car-selected-icon {
+	@include sprite($car-selected-icon);
+}
+.cart-icon {
+	@include sprite($cart-icon);
+}
+.characteristics_1 {
+	@include sprite($characteristics_1);
+}
+.characteristics_2 {
+	@include sprite($characteristics_2);
+}
+.select-icon {
+	@include sprite($select-icon);
+}
+.slider-next-icon {
+	@include sprite($slider-next-icon);
+}
+.slider-prev-icon {
+	@include sprite($slider-prev-icon);
+}
+.truck-icon {
+	@include sprite($truck-icon);
+}
+.truck-light-icon {
+	@include sprite($truck-light-icon);
+}
+.car-switcher__input_truck:checked + .icon,
+.truck-selected-icon {
+	@include sprite($truck-selected-icon);
+}
+.up-icon {
+	@include sprite($up-icon);
+}
+
 //migrationfromfont-awesomev3tov4
 [class^="icon-"] {
 	@extend .icon;

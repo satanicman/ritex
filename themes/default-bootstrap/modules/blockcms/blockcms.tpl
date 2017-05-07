@@ -64,6 +64,18 @@
 		</section>
 	{/foreach}
 	<!-- /Block CMS module -->
+{elseif $block == 2}
+	<ul class="menu__list col-sm-11">
+		{foreach from=$cmslinks item=cmslink}
+			{if $cmslink.meta_title != ''}
+				<li class="menu__item">
+					<a href="{$cmslink.link|escape:'html':'UTF-8'}" title="{$cmslink.meta_title|escape:'html':'UTF-8'}" class="menu__link">
+						{$cmslink.meta_title|escape:'html':'UTF-8'}
+					</a>
+				</li>
+			{/if}
+		{/foreach}
+	</ul>
 {else}
 	<!-- Block CMS module footer -->
 	<section class="footer-block col-xs-12 col-sm-2" id="block_various_links_footer">

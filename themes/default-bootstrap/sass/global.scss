@@ -23,7 +23,7 @@ body {
 	min-width: 320px;
 	height: 100%;
 	line-height: 18px;
-	font-size: 13px;
+	font-size: $f-base;
 	color: $base-body-color;
 	&.content_only {
 		background: none;
@@ -46,8 +46,6 @@ textarea {
 
 #columns {
 	position: relative;
-	padding-bottom: 50px;
-	padding-top: 15px;
 }
 
 #index {
@@ -60,13 +58,14 @@ textarea {
 header {
 	z-index: 1;
 	position: relative;
-	background: $light-background;
+	border-top: 9px solid $light-border-color;
+	padding-top: 10px;
 	padding-bottom: 15px;
 	.banner {
 		background: black;
 		max-height: 100%;
 		.row {
-			margin: 0px;
+			margin: 0;
 		}
 	}
 	.nav {
@@ -84,22 +83,80 @@ header {
 			position: relative;
 		}
 		#header_logo {
-			padding-top: 15px;
-			@extend .col-sm-4;
-			@media (max-width: $screen-md) {
-				padding-top: 40px;
-			}
-			@media (max-width: $screen-xs-max) {
-				padding-top: 15px;
-				img {
-					margin: 0 auto;
-				}
-			}
 		}
 	}
 	@media (min-width: $screen-xs-max){
 		.col-sm-4 + .col-sm-4 + .col-sm-4 {
 			float: right;
+		}
+	}
+}
+
+.header {
+    &__row {
+		@include display-flex;
+		@include align-items(center);
+		&:before, &:after {
+			display: none;
+		}
+	}
+	&__col {
+	}
+}
+
+.header__slogan {
+	font-family: Roboto, serif;
+	font-size: em(16px);
+	color: $base-text-color;
+	font-weight: 400;
+}
+
+.car-switcher {
+	&__list {
+		display: table;
+		margin: 0;
+	}
+	&__item {
+		display: table-cell;
+		vertical-align: middle;
+		padding-right: 20px;
+		padding-left: 0;
+		&:last-of-type {
+			padding-right: 0;
+		}
+	}
+	&__input {
+		display: none;
+	}
+	&__icon {}
+}
+
+.menu {
+	background-color: $orange-background;
+	box-shadow: 0 12px 20px rgba(0, 0, 0, 0.35);
+	&__list {
+		padding: 0;
+		margin: 0;
+		height: 58px;
+        @media (min-width: $screen-md) {
+            @include display-flex;
+            @include align-items(center);
+		}
+	}
+	&__item {
+        @include flex-grow(1);
+		text-align: center;
+		padding: 5px;
+	}
+	&__link {
+		color: $light-text-color;
+		text-shadow: 0 1px 0.9px rgba(0, 0, 0, 0.7), 0 0 4.9px rgba(255, 255, 255, 0.35);
+		font-family: Roboto, serif;
+		font-size: em(17px);
+		font-weight: 700;
+		&:hover {
+			text-decoration: underline;
+			color: $light-text-color;
 		}
 	}
 }

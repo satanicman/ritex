@@ -6,7 +6,6 @@
 #header .shopping_cart {
 	position: relative;
 	float: right;
-	padding-top: 50px;
 	> a:first-child {
 		&:after {
 			content: "\f0d7";
@@ -26,7 +25,6 @@
 	}
 }
 .shopping_cart {
-	width: 270px;
 	@media (max-width: $screen-xs) {
 		padding-top: 20px;
 	}
@@ -36,13 +34,13 @@
 		width: 100%;
 	}
 	> a:first-child {
-		padding: 7px 10px 14px 16px;
-		background: $dark-background;
+		padding: 0;
+		text-align: center;
 		display: block;
-		font-weight: bold;
-		color: #777777;
-		text-shadow: 1px 1px rgba(0,0,0,0.2);
 		overflow: hidden;
+        .icon {
+			vertical-align: middle;
+		}
 		span.ajax_cart_product_txt, span.ajax_cart_product_txt_s {
 			@media (min-width: $screen-sm) and (max-width: $screen-sm-max) { // min 768px max 991px
 				display: none !important;
@@ -53,15 +51,31 @@
 			font: 600 18px/22px $font-custom;
 			padding-right: 5px;
 		}
-		&:before {
-			content: "\f07a";
-			font-family: $font-icon;
-			display: inline-block;
-			font-size: 23px;
-			line-height: 23px;
-			color: $light-text-color;
-			padding-right: 15px;
-		}
+		//&:before {
+		//	content: "\f07a";
+		//	font-family: $font-icon;
+		//	display: inline-block;
+		//	font-size: 23px;
+		//	line-height: 23px;
+		//	color: $light-text-color;
+		//	padding-right: 15px;
+		//}
+	}
+    .ajax_cart_quantity {
+		width: 27px;
+		height: 27px;
+		@include border-radius(50%);
+		overflow: hidden;
+		background-color: $orange-background;
+		border: 1px solid white;
+		position: absolute;
+		top: -10px;
+		right: 10px;
+		color: $light-text-color;
+		font-family: "Open Sans", serif;
+		font-size: em(20px);
+		font-weight: 700;
+		line-height: 24px;
 	}
 	.ajax_cart_total {
 		display: none !important;

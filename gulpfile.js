@@ -12,6 +12,7 @@ var merge = require('merge-stream');
 var buffer = require('vinyl-buffer');
 var imagemin = require('gulp-imagemin');
 var pngquant = require('imagemin-pngquant');
+var refresh = require('gulp-refresh');
 
 //General
 var themeName = 'default-bootstrap';
@@ -47,7 +48,8 @@ gulp.task('sass', function() {
         .pipe(sass(sassConfig))
         // .pipe(ftp(ftpConnect))
         .pipe(gulp.dest(paths.prestashopCssDir))
-        .pipe(notify("SASS Done!"));
+        .pipe(notify("SASS Done!"))
+        .pipe(refresh());
 });
 
 
@@ -90,6 +92,7 @@ gulp.task('sprite', function() {
 * Watch Files For Changes
 */
 gulp.task('watch', function() {
+    refresh.listen();
     gulp.watch(paths.prestashopSassFiles, ['sass']);
     gulp.watch(paths.prestashopSpriteFiles, ['sprite']);
 });
