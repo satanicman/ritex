@@ -32,11 +32,36 @@
 			</div><!-- .columns-container -->
 			{if isset($HOOK_FOOTER)}
 				<!-- Footer -->
-				<div class="footer-container">
-					<footer id="footer"  class="container">
-						<div class="row">{$HOOK_FOOTER}</div>
-					</footer>
-				</div><!-- #footer -->
+				<footer class="footer">
+					<div class="footer__top">
+                        <div class="container">
+                            <div class="row">
+                                <div class="footer__logo col-sm-2">
+                                    <a href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}" title="{$shop_name|escape:'html':'UTF-8'}">
+                                        <img class="logo img-responsive" src="{$logo_url}" alt="{$shop_name|escape:'html':'UTF-8'}"{if isset($logo_image_width) && $logo_image_width} width="{$logo_image_width}"{/if}{if isset($logo_image_height) && $logo_image_height} height="{$logo_image_height}"{/if}/>
+                                    </a>
+                                </div>
+                                {$HOOK_FOOTER}
+                            </div>
+                        </div>
+					</div>
+                    <div class="footer__bottom">
+                        <div class="footer-bottom container">
+                            <div class="row footer-bottom__row">
+                                {capture name='displayFooterBottom'}{hook h='displayFooterBottom'}{/capture}
+                                {if $smarty.capture.displayFooterBottom}
+                                    {$smarty.capture.displayFooterBottom}
+                                {/if}
+                                <div class="footer-bottom__col col-sm-7 col-xs-12">
+                                    <p class="copyright">{l s='Все права защищены © 2017'}</p>
+                                </div>
+                                <div class="footer-bottom__col footer-bottom__col_btn col-sm-2 col-xs-12">
+                                    <a href="{$link->getPageLink('contact', true)|escape:'html':'UTF-8'}" title="{l s='Написать нам'}" class="pull-right btn btn_orange">{l s='Написать нам'}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+				</footer><!-- #footer -->
 			{/if}
 		</div><!-- #page -->
 {/if}

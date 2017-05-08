@@ -20,6 +20,7 @@
 		@include display-flex;
 		@include align-items(center);
 		li {
+			cursor: pointer;
 			width: 10px;
 			height: 10px;
 			background-color: #f4f4f4;

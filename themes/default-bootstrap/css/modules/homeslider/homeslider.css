@@ -23,6 +23,7 @@
   -webkit-align-items: center;
   align-items: center; }
 #homepage-slider .slick-dots li {
+  cursor: pointer;
   width: 10px;
   height: 10px;
   background-color: #f4f4f4;

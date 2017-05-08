@@ -106,7 +106,7 @@
 									<img class="logo img-responsive" src="{$logo_url}" alt="{$shop_name|escape:'html':'UTF-8'}"{if isset($logo_image_width) && $logo_image_width} width="{$logo_image_width}"{/if}{if isset($logo_image_height) && $logo_image_height} height="{$logo_image_height}"{/if}/>
 								</a>
 							</div>
-							<p class="header__slogan col-sm-3 header__col">{l s="Официальный импортер шин группы Continental (Semperit, Barum, Matador) в Украине"}</p>
+							<p class="header__slogan col-sm-3 header__col">{l s='Официальный импортер шин группы Continental (Semperit, Barum, Matador) в Украине'}</p>
 							{if isset($HOOK_TOP)}{$HOOK_TOP}{/if}
                             <div class="col-sm-offset-1 col-sm-2 car-switcher header__col">
 								<ul class="car-switcher__list">
@@ -125,10 +125,12 @@
 				</header>
 				<nav class="menu">
 					<div class="container">
-						{capture name='displayTopMenu'}{hook h='displayTopMenu'}{/capture}
-						{if $smarty.capture.displayTopMenu}
-							{$smarty.capture.displayTopMenu}
-						{/if}
+						<div class="row">
+                            {capture name='displayTopMenu'}{hook h='displayTopMenu'}{/capture}
+                            {if $smarty.capture.displayTopMenu}
+                                {$smarty.capture.displayTopMenu}
+                            {/if}
+						</div>
 					</div>
 				</nav>
 			</div>
