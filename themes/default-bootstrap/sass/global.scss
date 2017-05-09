@@ -146,7 +146,7 @@ header {
 
 .menu {
 	background-color: $orange-background;
-	box-shadow: 0 12px 20px rgba(0, 0, 0, 0.35);
+	//box-shadow: 0 12px 20px rgba(0, 0, 0, 0.35);
 	z-index: 5004;
 	position: relative;
 	&__list {
@@ -1812,83 +1812,63 @@ div.star a:hover {
 
 // BREADCRUMB
 .breadcrumb {
-	display: inline-block;
-	padding: 0 11px;
-	border: 1px solid $base-border-color;
-	font-weight: bold;
-	font-size: 12px;
+	padding: 13px 0;
+	background-color: $light-background;
+	font-family: Roboto, serif;
+	font-size: em(13px);
+	color: $base-text-color;
+	font-weight: 400;
+	text-transform: uppercase;
 	line-height: 24px;
-	min-height: 6px;
-	@include border-radius(3px);
 	overflow: hidden;
-	margin-bottom: 16px;
+	margin-bottom: 25px;
 	position: relative;
 	z-index: 1;
+	border-bottom: 1px solid #ccc;
 	.navigation-pipe {
 		width: 18px;
 		display: inline-block;
-		text-indent: -5000px;
+		text-align: center;
+		//text-indent: -5000px;
 	}
 	a {
+		color: $base-text-color;
 		display: inline-block;
-		background: $light-background;
-		padding: 0 15px 0 22px;
-		margin-left: -26px;
+		//padding: 0 15px 0 22px;
 		position: relative;
 		z-index: 2;
-		color: $base-text-color;
-		&.home {
-			font-size: 17px;
-			color: $text-color;
-			width: 38px;
-			text-align: center;
-			padding: 0;
-			margin: 0 0 0 -10px;
-			@include border-top-left-radius(3px);
-			@include border-bottom-left-radius(3px);
-			z-index: 99;
-			line-height: 22px;
-			display: inline-block;
-			height: 25px;
-			i {
-				vertical-align: -1px;
-			}
-			&:before {
-				border: none;
-			}
-		}
-		&:after {
-			display: inline-block;
-			content: ".";
-			position: absolute;
-			right: -10px;
-			top: 3px;
-			width: 18px;
-			height: 18px;
-			background: $light-background;
-			border-right: 1px solid $base-border-color;
-			border-top: 1px solid $base-border-color;
-			border-radius: 2px;
-			text-indent: -5000px;
-			z-index: -1;
-			@include rotate(45deg);
-		}
-		&:before {
-			display: inline-block;
-			content: ".";
-			position: absolute;
-			left: -10px;
-			top: 3px;
-			width: 18px;
-			height: 18px;
-			background: transparent;
-			border-right: 1px solid $base-border-color;
-			border-top: 1px solid $base-border-color;
-			border-radius: 2px;
-			text-indent: -5000px;
-			z-index: -1;
-			@include rotate(45deg);
-		}
+		//&:after {
+		//	display: inline-block;
+		//	content: ".";
+		//	position: absolute;
+		//	right: -10px;
+		//	top: 3px;
+		//	width: 18px;
+		//	height: 18px;
+		//	background: $light-background;
+		//	border-right: 1px solid $base-border-color;
+		//	border-top: 1px solid $base-border-color;
+		//	border-radius: 2px;
+		//	text-indent: -5000px;
+		//	z-index: -1;
+		//	@include rotate(45deg);
+		//}
+		//&:before {
+		//	display: inline-block;
+		//	content: ".";
+		//	position: absolute;
+		//	left: -10px;
+		//	top: 3px;
+		//	width: 18px;
+		//	height: 18px;
+		//	background: transparent;
+		//	border-right: 1px solid $base-border-color;
+		//	border-top: 1px solid $base-border-color;
+		//	border-radius: 2px;
+		//	text-indent: -5000px;
+		//	z-index: -1;
+		//	@include rotate(45deg);
+		//}
 		&:hover {
 			color: #777777;
 		}
