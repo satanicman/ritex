@@ -1,0 +1,27 @@
+@import "compass";
+@import "theme_variables";
+
+.homecategories {
+    position: relative;
+    &__item {
+        padding: 0;
+        height: 180px;
+        @include display-flex;
+        @include align-items(canter);
+        @include justify-content(space-around);
+    }
+    &__item-container {
+        border: 1px solid $orange-border-color;
+        @include transition(border-width .3s);
+        &:hover,
+        &.active {
+            border-width: 7px;
+        }
+    }
+    &__img {
+        @include transition(width .3s);
+    }
+    &__child {
+        display: none;
+    }
+}
