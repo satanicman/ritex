@@ -16,12 +16,23 @@
 * @license   http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 * International Registered Trademark & Property of PrestaShop SA
 *}
-<div class="home_categories col-md-12">
+<div class="home_categories">
    {* <h2>{l s='Categories' mod='homecategories'}</h2>*}
     {if isset($categories) AND $categories}
-        <div id="subcategories">
-            {*{include file="$tpl_dir./subcategory.tpl" subcategories=$categories}*}
-        </div>
+        <ul class="homecategories clearfix">
+            {foreach from=$categories item='category' name=homecategories}
+                {if $category.id_category == 12}{continue}{/if}
+                <li class="homecategories__item col-sm-3 col-xs-12">
+                    <div class="row">
+                    {if $category.id_image}
+                        <img class="homecategories__img img-responsive" src="{$img_cat_dir}{$category.id_image}_thumb.jpg" alt="{$category.name|escape:'html':'UTF-8'}"/>
+                    {else}
+                        <img class="homecategories__img img-responsive" src="{$img_cat_dir}{$lang_iso}-default-medium_default.jpg" alt="{$category.name|escape:'html':'UTF-8'}"/>
+                    {/if}
+                    </div>
+                </li>
+            {/foreach}
+        </ul>
     {else}
         <p>{l s='No categories' mod='homecategories'}</p>
     {/if}

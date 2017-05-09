@@ -16,5 +16,11 @@
   src: url("../fonts/helveticaneuecyr-medium/helveticaneuecyr-medium.eot?#iefix") format("embedded-opentype"), url("../fonts/helveticaneuecyr-medium/helveticaneuecyr-medium.woff") format("woff"), url("../fonts/helveticaneuecyr-medium/helveticaneuecyr-medium.ttf") format("truetype");
   font-style: normal;
   font-weight: normal; }
+@font-face {
+  font-family: "helveticaneuecyr-roman";
+  src: url("../fonts/helveticaneuecyr-roman/helveticaneuecyr-roman.eot");
+  src: url("../fonts/helveticaneuecyr-roman/helveticaneuecyr-roman.eot?#iefix") format("embedded-opentype"), url("../fonts/helveticaneuecyr-roman/helveticaneuecyr-roman.woff") format("woff"), url("../fonts/helveticaneuecyr-roman/helveticaneuecyr-roman.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal; }
 
 /*# sourceMappingURL=fonts.css.map */

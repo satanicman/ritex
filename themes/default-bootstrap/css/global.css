@@ -5177,117 +5177,123 @@ th.visible-print, td.visible-print {
 .icon-medium:before {
   content: ""; }
 
+.tires-calc__row::after, .corner-icon {
+  background-image: url(../img/sprite.png);
+  background-position: -148px 0px;
+  width: 232px;
+  height: 68px; }
+
 .applicability_1 {
   background-image: url(../img/sprite.png);
-  background-position: -265px -50px;
+  background-position: -73px -246px;
   width: 41px;
   height: 41px; }
 
 .applicability_2 {
   background-image: url(../img/sprite.png);
-  background-position: -315px -193px;
+  background-position: -120px -309px;
   width: 36px;
   height: 42px; }
 
 .applicability_3 {
   background-image: url(../img/sprite.png);
-  background-position: -315px 0px;
+  background-position: -119px -246px;
   width: 47px;
   height: 35px; }
 
 .axis_1 {
   background-image: url(../img/sprite.png);
-  background-position: -315px -91px;
+  background-position: -80px -309px;
   width: 35px;
   height: 46px; }
 
 .axis_2 {
   background-image: url(../img/sprite.png);
-  background-position: -315px -40px;
+  background-position: 0px -309px;
   width: 35px;
   height: 46px; }
 
 .axis_3 {
   background-image: url(../img/sprite.png);
-  background-position: -315px -142px;
+  background-position: -40px -309px;
   width: 35px;
   height: 46px; }
 
 .big_truck-light-icon {
   background-image: url(../img/sprite.png);
-  background-position: -148px -57px;
+  background-position: 0px -186px;
   width: 80px;
   height: 55px; }
 
 .car-icon {
   background-image: url(../img/sprite.png);
-  background-position: 0px -245px;
+  background-position: -210px -186px;
   width: 65px;
   height: 27px; }
 
 .car-light-icon {
   background-image: url(../img/sprite.png);
-  background-position: -148px 0px;
+  background-position: 0px -129px;
   width: 112px;
   height: 52px; }
 
 .car-switcher__input_car:checked + .icon, .car-switcher__input_car:checked + [class^="icon-"], .car-selected-icon {
   background-image: url(../img/sprite.png);
-  background-position: -70px -245px;
+  background-position: -140px -186px;
   width: 65px;
   height: 27px; }
 
 .cart-icon {
   background-image: url(../img/sprite.png);
-  background-position: 0px -182px;
+  background-position: 0px -246px;
   width: 68px;
   height: 58px; }
 
 .characteristics_1 {
   background-image: url(../img/sprite.png);
-  background-position: -119px -129px;
+  background-position: -267px -73px;
   width: 44px;
   height: 48px; }
 
 .characteristics_2 {
   background-image: url(../img/sprite.png);
-  background-position: -265px 0px;
+  background-position: -316px -73px;
   width: 45px;
   height: 45px; }
 
-.select-icon {
+div.selector span:before, .select-icon {
   background-image: url(../img/sprite.png);
-  background-position: -315px -240px;
+  background-position: -171px -246px;
   width: 29px;
   height: 29px; }
 
-.slider-next-icon {
+.slick-next, .slider-next-icon {
   background-image: url(../img/sprite.png);
-  background-position: -128px -182px;
+  background-position: -117px -129px;
   width: 50px;
-  height: 53px; }
+  height: 50px; }
 
-.slider-prev-icon {
+.slick-prev, .slider-prev-icon {
   background-image: url(../img/sprite.png);
-  background-position: -73px -182px;
+  background-position: -85px -186px;
   width: 50px;
   height: 53px; }
 
 .truck-icon {
   background-image: url(../img/sprite.png);
-  background-position: -183px -182px;
+  background-position: -252px -129px;
   width: 75px;
   height: 27px; }
 
 .truck-light-icon {
   background-image: url(../img/sprite.png);
-  background-position: 0px -129px;
+  background-position: -148px -73px;
   width: 114px;
   height: 48px; }
 
 .car-switcher__input_truck:checked + .icon, .car-switcher__input_truck:checked + [class^="icon-"], .truck-selected-icon {
   background-image: url(../img/sprite.png);
-  background-position: -168px -129px;
+  background-position: -172px -129px;
   width: 75px;
   height: 27px; }
 
@@ -5413,11 +5419,29 @@ header .row > .container, header .row > .slick-dots {
   color: #fff; }
 .menu__cart {
   border-style: solid;
-  border-color: #e9edf2;
+  border-color: #fff;
   border-width: 0 1px; }
 
 .ie8 #header #header_logo {
   width: 350px; }
+
+.title_blue {
+  margin-bottom: 20px; }
+.title_blue .title__text {
+  color: #fff;
+  font-family: Roboto, serif;
+  font-size: 0.9375em;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #3357b4;
+  -moz-border-radius: 16px;
+  -webkit-border-radius: 16px;
+  border-radius: 16px;
+  -webkit-box-shadow: 0 3px 7px rgba(51, 87, 180, 0.35);
+  box-shadow: 0 3px 7px rgba(51, 87, 180, 0.35); }
 
 #center_column .page_product_box h3 {
   color: #555454;
@@ -5627,6 +5651,27 @@ input.button_disabled, input.exclusive_disabled, span.exclusive {
 .button.button-medium.exclusive:hover span {
   border-color: #fec133; }
 
+.slick {
+  position: relative; }
+.slick-arrow {
+  outline: 0;
+  position: absolute;
+  top: 50%;
+  margin-top: -25px;
+  display: inline-block;
+  text-align: center;
+  text-indent: -99999px;
+  z-index: 2;
+  background-color: transparent;
+  border: none; }
+.slick-arrow:before {
+  display: inline-block;
+  content: ''; }
+.slick-prev {
+  left: 0; }
+.slick-next {
+  right: 0; }
+
 .link-button {
   font-weight: bold; }
 .link-button i {
@@ -5650,7 +5695,7 @@ input.button_disabled, input.exclusive_disabled, span.exclusive {
   border-radius: 0; }
 .btn.button-plus span, .btn.button-minus span {
   display: block;
-  border: 1px solid #e9edf2;
+  border: 1px solid #fff;
   vertical-align: middle;
   width: 25px;
   height: 25px;
@@ -5681,7 +5726,7 @@ input.button_disabled, input.exclusive_disabled, span.exclusive {
   text-shadow: 1px 1px white; }
 .button.exclusive-medium span {
   border: 1px solid;
-  border-color: #e9edf2;
+  border-color: #fff;
   display: block;
   padding: 9px 10px 11px 10px;
   background: #f7f7f7;
@@ -5700,29 +5745,34 @@ input.button_disabled, input.exclusive_disabled, span.exclusive {
   border-color: #9e9e9e #c2c2c2 #c8c8c8 #c2c2c2; }
 
 .button.ajax_add_to_cart_button {
-  font: 700 17px/21px Arial, Helvetica, sans-serif;
   color: #fff;
-  text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
-  padding: 0;
-  border: 1px solid;
-  border-color: #0079b6 #006fa8 #012740 #006fa8; }
-.button.ajax_add_to_cart_button span {
-  border: 1px solid;
-  border-color: #06b2e6;
-  padding: 10px 14px;
+  font-family: 'helveticaneuecyr-roman', serif;
+  font-size: 1.125em;
+  font-weight: 400;
+  line-height: 1;
+  text-transform: uppercase;
+  border: none;
   display: block;
-  background: #009ad0;
-  background-image: -webkit-gradient(linear, left 0%, left 100%, from(#009ad0), to(#007ab7));
-  background-image: -webkit-linear-gradient(top, #009ad0, 0%, #007ab7, 100%);
-  background-image: -moz-linear-gradient(top, #009ad0 0%, #007ab7 100%);
-  background-image: linear-gradient(to bottom, #009ad0 0%, #007ab7 100%);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF009AD0', endColorstr='#FF007AB7', GradientType=0); }
+  text-align: center;
+  padding: 16px 14px;
+  background: #f57f1f; }
+.button.ajax_add_to_cart_button span {
+  display: inline-block;
+  position: relative;
+  background: none;
+  padding: 0 27px 0 0; }
+.button.ajax_add_to_cart_button span:after {
+  display: inline-block;
+  vertical-align: middle;
+  font-family: "FontAwesome";
+  content: "\f07a";
+  font-size: 23px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-top: -13px; }
 .button.ajax_add_to_cart_button:hover {
-  border-color: #01314e #004b74 #0079b6 #004b74; }
-.button.ajax_add_to_cart_button:hover span {
-  filter: none;
-  background: #0084bf; }
+  border: none; }
 
 .button.lnk_view {
   font: 700 17px/21px Arial, Helvetica, sans-serif;
@@ -5733,7 +5783,7 @@ input.button_disabled, input.exclusive_disabled, span.exclusive {
   border-color: #cacaca #b7b7b7 #9a9a9a #b7b7b7; }
 .button.lnk_view span {
   border: 1px solid;
-  border-color: #e9edf2;
+  border-color: #fff;
   padding: 10px 14px;
   display: block;
   background: #f7f7f7;
@@ -5751,6 +5801,37 @@ input.button_disabled, input.exclusive_disabled, span.exclusive {
 .button.lnk_view i.left {
   padding-right: 8px;
   color: #777777; }
+
+div.selector {
+  background: #fff !important;
+  border: 1px solid rgba(0, 0, 0, 0.19);
+  -moz-border-radius: 21px;
+  -webkit-border-radius: 21px;
+  border-radius: 21px;
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.44);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.44);
+  height: 37px !important;
+  cursor: pointer;
+  padding-left: 20px !important; }
+div.selector select, div.selector span {
+  min-height: 37px; }
+div.selector span {
+  display: inline-block !important;
+  position: relative;
+  background: none !important;
+  color: #333 !important;
+  font-family: Roboto, serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 37px !important; }
+div.selector span:before {
+  display: inline-block;
+  vertical-align: middle;
+  content: '';
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  margin-top: -14.5px; }
 
 .form-control {
   padding: 3px 5px;
@@ -5825,12 +5906,21 @@ table.std td, table.table_block td {
   white-space: nowrap; }
 
 .price.product-price {
-  font: 600 21px/26px "Open Sans", sans-serif;
-  color: #333; }
+  color: #2195d7;
+  font-family: "Open Sans", serif;
+  font-size: 1.25em;
+  font-weight: 400;
+  line-height: 1;
+  margin-bottom: 2px; }
 
 .old-price {
-  color: #6f6f6f;
-  text-decoration: line-through; }
+  color: #cbcbcb;
+  font-family: "Open Sans", serif;
+  font-size: 0.9375em;
+  font-weight: 400;
+  line-height: 1;
+  text-decoration: line-through;
+  margin: 0; }
 
 .old-price.product-price {
   font-size: 17px; }
@@ -6329,7 +6419,7 @@ ul.footer_links li + li {
   border-color: #dfdede #d2d0d0 #b0afaf #d2d0d0;
   display: block; }
 .top-pagination-content ul.pagination li > a span, .top-pagination-content ul.pagination li > span span, .bottom-pagination-content ul.pagination li > a span, .bottom-pagination-content ul.pagination li > span span {
-  border: 1px solid #e9edf2;
+  border: 1px solid #fff;
   padding: 2px 8px;
   display: block;
   background: url(../img/pagination-li.gif) 0 0 repeat-x #fbfbfb; }
@@ -6507,7 +6597,7 @@ ul.step li.step_todo {
 ul.step li.step_todo span {
   display: block;
   border: 1px solid;
-  border-color: #e9edf2;
+  border-color: #fff;
   color: #333;
   position: relative; }
 @media (min-width: 992px) {

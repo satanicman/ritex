@@ -135,12 +135,15 @@
 				</nav>
 			</div>
 			<div class="columns-container">
-				<div id="slider_row" class="row">
+				<div id="slider_row">
 					{capture name='displayTopColumn'}{hook h='displayTopColumn'}{/capture}
 					{if $smarty.capture.displayTopColumn}
-						<div id="top_column" class="center_column col-xs-12 col-sm-12">{$smarty.capture.displayTopColumn}</div>
+						<div id="top_column" class="center_column col-xs-12 col-sm-12"><div class="row">{$smarty.capture.displayTopColumn}</div></div>
 					{/if}
 				</div>
+                {if $page_name =='index'}
+                    {include file="$tpl_dir./tires-calc.tpl"}
+                {/if}
 				<div id="columns" class="container">
 					{if $page_name !='index' && $page_name !='pagenotfound'}
 						{include file="$tpl_dir./breadcrumb.tpl"}

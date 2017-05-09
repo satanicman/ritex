@@ -3,6 +3,10 @@
 // sprite
 @import "sprite";
 
+.tires-calc__row::after,
+.corner-icon {
+	@include sprite($corner-icon);
+}
 .applicability_1 {
 	@include sprite($applicability_1);
 }
@@ -43,12 +47,15 @@
 .characteristics_2 {
 	@include sprite($characteristics_2);
 }
+div.selector span:before,
 .select-icon {
 	@include sprite($select-icon);
 }
+.slick-next,
 .slider-next-icon {
 	@include sprite($slider-next-icon);
 }
+.slick-prev,
 .slider-prev-icon {
 	@include sprite($slider-prev-icon);
 }
