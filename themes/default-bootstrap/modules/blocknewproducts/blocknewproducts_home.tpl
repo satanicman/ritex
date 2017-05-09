@@ -23,8 +23,10 @@
 *  International Registered Trademark & Property of PrestaShop SA
 *}
 {if isset($new_products) && $new_products}
-	<h4 class="title title_blue"><span class="title__text">{l s='New arrivals' mod='blocknewproducts'}</span></h4>
-	{include file="$tpl_dir./product-list.tpl" products=$new_products class='blocknewproducts slick' id='blocknewproducts'}
+	<div class="index__blocknewproducts">
+        <h4 class="title title_blue"><span class="title__text">{l s='New arrivals' mod='blocknewproducts'}</span></h4>
+        {include file="$tpl_dir./product-list.tpl" products=$new_products class='blocknewproducts slick' id='blocknewproducts'}
+    </div>
 {else}
 <ul id="blocknewproducts" class="blocknewproducts tab-pane">
 	<li class="alert alert-info">{l s='No new products at this time.' mod='blocknewproducts'}</li>

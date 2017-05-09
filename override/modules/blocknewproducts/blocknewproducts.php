@@ -23,4 +23,8 @@ class BlockNewProductsOverride extends BlockNewProducts
 
 		return $this->display(__FILE__, 'blocknewproducts_home.tpl', $this->getCacheId('blocknewproducts-home'));
 	}
+
+	public function hookDisplayHome($params) {
+        return $this->hookdisplayHomeTabContent($params);
+    }
 }

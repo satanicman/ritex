@@ -1,0 +1,14 @@
+@import "compass";
+@import "theme_variables";
+
+.index {
+    &__blocknewproducts {
+        padding: 20px 15px 0;
+    }
+    &__homecategories {
+        padding: 115px 0 65px;
+    }
+    &__blockcmsinfo {
+        margin-top: 45px;
+    }
+}

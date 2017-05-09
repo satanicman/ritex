@@ -165,51 +165,53 @@ Product list(Grid) Styles
   padding: 5px 0;
   margin: 0; }
 
-.slick-track > li, ul.product_list.grid > li {
+ul.product_list.grid .slick-track > li, ul.product_list.grid > li {
   text-align: center; }
 @media (min-width: 480px) and (max-width: 767px) {
-  .slick-track > li, ul.product_list.grid > li {
+  ul.product_list.grid .slick-track > li, ul.product_list.grid > li {
     width: 50%;
     float: left; } }
-.slick-track > li .right-block, ul.product_list.grid > li .right-block {
+ul.product_list.grid .slick-track > li .right-block, ul.product_list.grid > li .right-block {
   padding: 0 10px; }
-.slick-track > li .button-container, ul.product_list.grid > li .button-container {
+ul.product_list.grid .slick-track > li .button-container, ul.product_list.grid > li .button-container {
   margin: 10px -10px 0; }
-.slick-track > li .product-container, ul.product_list.grid > li .product-container {
+ul.product_list.grid .slick-track > li .product-container, ul.product_list.grid > li .product-container {
   background: #fff;
   padding: 0;
   position: relative;
   -moz-box-shadow: 0 0 15px rgba(25, 30, 35, 0.3);
   -webkit-box-shadow: 0 0 15px rgba(25, 30, 35, 0.3);
   box-shadow: 0 0 15px rgba(25, 30, 35, 0.3); }
-.slick-track > li .product-container .product-image-container, ul.product_list.grid > li .product-container .product-image-container {
+ul.product_list.grid .slick-track > li .product-container .product-image-container, ul.product_list.grid > li .product-container .product-image-container {
   background-color: rgba(226, 232, 235, 0.5); }
 @media (max-width: 767px) {
-  .slick-track > li .product-container .product-image-container, ul.product_list.grid > li .product-container .product-image-container {
+  ul.product_list.grid .slick-track > li .product-container .product-image-container, ul.product_list.grid > li .product-container .product-image-container {
     margin-left: auto;
     margin-right: auto; } }
-.slick-track > li .product-container h5, ul.product_list.grid > li .product-container h5 {
+ul.product_list.grid .slick-track > li .product-container h5, ul.product_list.grid > li .product-container h5 {
   min-height: 36px;
   font-size: 16px;
   margin: 0 0 20px; }
 @media (min-width: 1200px) {
-  .slick-track > li .product-container .comments_note, ul.product_list.grid > li .product-container .comments_note {
+  ul.product_list.grid .slick-track > li .product-container .comments_note, ul.product_list.grid > li .product-container .comments_note {
     display: none; } }
-.slick-track > li .product-container .comments_note .star_content, ul.product_list.grid > li .product-container .comments_note .star_content {
+ul.product_list.grid .slick-track > li .product-container .comments_note .star_content, ul.product_list.grid > li .product-container .comments_note .star_content {
   margin: 0 3px 12px 59px; }
-.slick-track > li .product-container .product-flags, ul.product_list.grid > li .product-container .product-flags {
+ul.product_list.grid .slick-track > li .product-container .product-flags, ul.product_list.grid > li .product-container .product-flags {
   display: none; }
-.slick-track > li .product-container .functional-buttons, ul.product_list.grid > li .product-container .functional-buttons {
+ul.product_list.grid .slick-track > li .product-container .functional-buttons, ul.product_list.grid > li .product-container .functional-buttons {
   background: url(../img/functional-bt-shadow.png) repeat-x;
   padding: 11px 0 5px; }
 @media (min-width: 1200px) {
-  .slick-track > li .product-container .functional-buttons, ul.product_list.grid > li .product-container .functional-buttons {
+  ul.product_list.grid .slick-track > li .product-container .functional-buttons, ul.product_list.grid > li .product-container .functional-buttons {
     display: none; } }
-.slick-track > li .product-container .functional-buttons div, ul.product_list.grid > li .product-container .functional-buttons div {
+ul.product_list.grid .slick-track > li .product-container .functional-buttons div, ul.product_list.grid > li .product-container .functional-buttons div {
   width: 50%;
   float: left;
   padding: 3px 0 4px 0; }
 
+ul.product_list.grid {
+  margin-bottom: 0; }
 @media (min-width: 992px) {
   ul.product_list.grid > li.first-in-line {
     clear: left; } }

@@ -1,5 +1,7 @@
 .homecategories {
   position: relative; }
+.homecategories__list {
+  margin: 0; }
 .homecategories__item {
   padding: 0;
   height: 180px;
@@ -8,20 +10,27 @@
   -webkit-align-items: canter;
   align-items: canter;
   -webkit-justify-content: space-around;
-  justify-content: space-around; }
+  justify-content: space-around;
+  text-align: center; }
 .homecategories__item-container {
+  background-color: #fff;
   border: 1px solid #f57f1f;
   -moz-transition: border-width 0.3s;
   -o-transition: border-width 0.3s;
   -webkit-transition: border-width 0.3s;
-  transition: border-width 0.3s; }
+  transition: border-width 0.3s;
+  width: 100%; }
 .homecategories__item-container:hover, .homecategories__item-container.active {
   border-width: 7px; }
 .homecategories__img {
   -moz-transition: width 0.3s;
   -o-transition: width 0.3s;
   -webkit-transition: width 0.3s;
-  transition: width 0.3s; }
+  transition: width 0.3s;
+  display: inline-block;
+  vertical-align: middle;
+  max-width: 100%;
+  max-height: 100%; }
 .homecategories__child {
   display: none; }
 

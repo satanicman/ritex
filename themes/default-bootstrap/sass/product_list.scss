@@ -212,7 +212,7 @@ Product list(Grid) Styles
 		margin: 0;
 	}
 }
-.slick-track,
+ul.product_list.grid .slick-track,
 ul.product_list.grid {
 	> li {
 		text-align: center;
@@ -300,6 +300,7 @@ ul.product_list.grid {
 	//}
 }
 ul.product_list.grid {
+	margin-bottom: 0;
 	> li {
 		@media (min-width: $screen-md) { // min 991px
 			&.first-in-line {

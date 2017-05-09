@@ -3,16 +3,22 @@
 
 .homecategories {
     position: relative;
+    &__list {
+        margin: 0;
+    }
     &__item {
         padding: 0;
         height: 180px;
         @include display-flex;
         @include align-items(canter);
         @include justify-content(space-around);
+        text-align: center;
     }
     &__item-container {
+        background-color: $light-background;
         border: 1px solid $orange-border-color;
         @include transition(border-width .3s);
+        width: 100%;
         &:hover,
         &.active {
             border-width: 7px;
@@ -20,6 +26,10 @@
     }
     &__img {
         @include transition(width .3s);
+        display: inline-block;
+        vertical-align: middle;
+        max-width: 100%;
+        max-height: 100%;
     }
     &__child {
         display: none;

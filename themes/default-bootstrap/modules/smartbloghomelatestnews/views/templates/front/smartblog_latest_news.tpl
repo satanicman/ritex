@@ -1,5 +1,5 @@
 {if isset($view_data) AND !empty($view_data)}
-<div class="smartbloghomelatestnews row">
+<div class="smartbloghomelatestnews">
     {assign var='i' value=0}
     <ul class="smartbloghomelatestnews__list">
         {foreach from=$view_data item=post}

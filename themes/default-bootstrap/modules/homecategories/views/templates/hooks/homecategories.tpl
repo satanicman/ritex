@@ -16,7 +16,7 @@
 * @license   http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 * International Registered Trademark & Property of PrestaShop SA
 *}
-<div class="home_categories">
+<div class="index__homecategories home_categories">
    {* <h2>{l s='Categories' mod='homecategories'}</h2>*}
     {if isset($categories) AND $categories}
         <div class="homecategories">
@@ -24,13 +24,13 @@
                 {foreach from=$categories item='category' name=homecategories}
                     <li class="homecategories__item col-sm-3 col-xs-12">
                         <div class="homecategories__item-container">
-                            <a href="{$link->getCategoryLink($category.id_category, $category.link_rewrite)|escape:'html':'UTF-8'}" class="homecategories__link" title="{$category.name|escape:'html':'UTF-8'}">
+                            {*<a href="{$link->getCategoryLink($category.id_category, $category.link_rewrite)|escape:'html':'UTF-8'}" class="homecategories__link" title="{$category.name|escape:'html':'UTF-8'}">*}
                                 {if $category.id_image}
-                                    <img class="homecategories__img img-responsive" src="{$img_cat_dir}{$category.id_image}_thumb.jpg" alt="{$category.name|escape:'html':'UTF-8'}"/>
+                                    <img class="homecategories__img" src="{$img_cat_dir}{$category.id_image}_thumb.jpg" alt="{$category.name|escape:'html':'UTF-8'}"/>
                                 {else}
                                     <img class="homecategories__img img-responsive" src="{$img_cat_dir}{$lang_iso}-default-medium_default.jpg" alt="{$category.name|escape:'html':'UTF-8'}"/>
                                 {/if}
-                            </a>
+                            {*</a>*}
                             {if isset($category.children) && $category.children}
                                 <div class="homecategories-child homecategories__child">
                                     <ul class="homecategories-child__list">
