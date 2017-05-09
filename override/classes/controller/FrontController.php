@@ -35,5 +35,6 @@ class FrontController extends FrontControllerCore
     {
         parent::setMedia();
         $this->addCSS(_THEME_CSS_DIR_.'fonts.css', 'all');
+        $this->addCSS(_THEME_CSS_DIR_.'tires-calc.css', 'all');
     }
 }

@@ -1,0 +1,154 @@
+@import "compass";
+@import "theme_variables";
+
+.tires-calc {
+    color: $base-text-color;
+    margin-top: -50px;
+    position: relative;
+    z-index: 2;
+    &__title {
+        text-align: center;
+        font-size: em(18px);
+        font-family: Roboto, serif;
+        font-weight: 700;
+        line-height: 1;
+        margin: 0;
+        padding: 0;
+        &-text {
+            display: inline-block;
+            vertical-align: middle;
+            background-color: $light-background;
+            padding: 16px 5px;
+            position: relative;
+            &:before, &:after {
+                display: inline-block;
+                content: '';
+                border-style: solid;
+                border-color: transparent;
+                border-width: 25px 20px;
+                border-bottom-color: $light-border-color;
+                position: absolute;
+                top: 0;
+            }
+            &:before {
+                border-right-color: $light-border-color;
+                left: -40px;
+            }
+            &:after {
+                border-left-color: $light-border-color;
+                right: -40px;
+            }
+        }
+    }
+    &__row {
+        background-color: $light-background;
+        @include box-shadow(0 8px 15px rgba(0, 0, 0, 0.25));
+        margin-bottom: 70px;
+        padding-top: 30px;
+        padding-bottom: 55px;
+        &:after {
+            display: inline-block;
+            vertical-align: middle;
+            content: '';
+            position: absolute;
+            z-index: 2;
+            bottom: -68px;
+            left: 50%;
+            margin-left: -116px;
+        }
+    }
+    &__col {
+        width: 27%;
+        float: left;
+        padding-right: 25px;
+        &_last {
+            width: 19%;
+            padding-right: 0;
+        }
+    }
+    &-col {
+        &__top {
+            position: relative;
+            @include display-flex;
+            @include align-items(center);
+            @include justify-content(space-around);
+            @include box-shadow(0 3px 8px rgba(0, 0, 0, 0.5));
+            background-color: $orange-background;
+            height: 60px;
+            width: 200px;
+            text-align: center;
+            padding: 10px;
+            color: $light-text-color;
+            font-family: Roboto, serif;
+            font-size: em(18px);
+            font-weight: 700;
+            margin-bottom: 45px;
+            &_transparent {
+                background-color: transparent;
+                @include box-shadow(none);
+            }
+            .icon {
+                position: absolute;
+                top: 70%;
+            }
+            .truck-light-icon {
+                right: -57px;
+            }
+            .big_truck-light-icon {
+                right: -40px;
+            }
+            .car-light-icon {
+                right: -56px;
+            }
+            &-text {
+                margin: 0;
+            }
+        }
+        &__header {
+            color: $description-color;
+            font-family: Raleway, serif;
+            font-size: em(24px);
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        &__icon {
+            display: inline-block;
+            vertical-align: middle;
+            width: 60px;
+            height: 60px;
+            margin-right: 10px;
+            @include flex-shrink(0);
+            background-color: #666;
+            @include box-shadow(inset 0 -4px 3px rgba(0, 0, 0, 0.2));
+            @include border-radius(50%);
+            @include display-flex;
+            @include align-items(center);
+            @include justify-content(space-around);
+        }
+        &__label {
+            color: $base-text-color;
+            font-family: 'helveticaneuecyr-roman', serif;
+            font-size: em(16px);
+            font-weight: 400;
+            line-height: 20px;
+            @include display-flex;
+            @include align-items(center);
+            margin: 0;
+        }
+        &__input {
+            display: none;
+            &:checked + .tires-calc-col__label .tires-calc-col__icon {
+                background-color: $orange-background;
+            }
+        }
+        &__item {
+            margin-bottom: 15px;
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+        }
+        &__list {
+            margin: 0;
+        }
+    }
+}

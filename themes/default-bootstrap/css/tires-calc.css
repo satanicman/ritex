@@ -1,0 +1,145 @@
+.tires-calc {
+  color: #333;
+  margin-top: -50px;
+  position: relative;
+  z-index: 2; }
+.tires-calc__title {
+  text-align: center;
+  font-size: 1.125em;
+  font-family: Roboto, serif;
+  font-weight: 700;
+  line-height: 1;
+  margin: 0;
+  padding: 0; }
+.tires-calc__title-text {
+  display: inline-block;
+  vertical-align: middle;
+  background-color: #fff;
+  padding: 16px 5px;
+  position: relative; }
+.tires-calc__title-text:before, .tires-calc__title-text:after {
+  display: inline-block;
+  content: '';
+  border-style: solid;
+  border-color: transparent;
+  border-width: 25px 20px;
+  border-bottom-color: #fff;
+  position: absolute;
+  top: 0; }
+.tires-calc__title-text:before {
+  border-right-color: #fff;
+  left: -40px; }
+.tires-calc__title-text:after {
+  border-left-color: #fff;
+  right: -40px; }
+.tires-calc__row {
+  background-color: #fff;
+  -moz-box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25);
+  margin-bottom: 70px;
+  padding-top: 30px;
+  padding-bottom: 55px; }
+.tires-calc__row:after {
+  display: inline-block;
+  vertical-align: middle;
+  content: '';
+  position: absolute;
+  z-index: 2;
+  bottom: -68px;
+  left: 50%;
+  margin-left: -116px; }
+.tires-calc__col {
+  width: 27%;
+  float: left;
+  padding-right: 25px; }
+.tires-calc__col_last {
+  width: 19%;
+  padding-right: 0; }
+.tires-calc-col__top {
+  position: relative;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+  -moz-box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+  background-color: #f57f1f;
+  height: 60px;
+  width: 200px;
+  text-align: center;
+  padding: 10px;
+  color: #fff;
+  font-family: Roboto, serif;
+  font-size: 1.125em;
+  font-weight: 700;
+  margin-bottom: 45px; }
+.tires-calc-col__top_transparent {
+  background-color: transparent;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none; }
+.tires-calc-col__top .icon {
+  position: absolute;
+  top: 70%; }
+.tires-calc-col__top .truck-light-icon {
+  right: -57px; }
+.tires-calc-col__top .big_truck-light-icon {
+  right: -40px; }
+.tires-calc-col__top .car-light-icon {
+  right: -56px; }
+.tires-calc-col__top-text {
+  margin: 0; }
+.tires-calc-col__header {
+  color: #666;
+  font-family: Raleway, serif;
+  font-size: 1.5em;
+  font-weight: 600;
+  margin-bottom: 12px; }
+.tires-calc-col__icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 60px;
+  height: 60px;
+  margin-right: 10px;
+  -webkit-flex-shrink: 0;
+  flex-shrink: 0;
+  background-color: #666;
+  -moz-box-shadow: inset 0 -4px 3px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: inset 0 -4px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 -4px 3px rgba(0, 0, 0, 0.2);
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: space-around;
+  justify-content: space-around; }
+.tires-calc-col__label {
+  color: #333;
+  font-family: 'helveticaneuecyr-roman', serif;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 20px;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  margin: 0; }
+.tires-calc-col__input {
+  display: none; }
+.tires-calc-col__input:checked + .tires-calc-col__label .tires-calc-col__icon {
+  background-color: #f57f1f; }
+.tires-calc-col__item {
+  margin-bottom: 15px; }
+.tires-calc-col__item:last-of-type {
+  margin-bottom: 0; }
+.tires-calc-col__list {
+  margin: 0; }
+
+/*# sourceMappingURL=tires-calc.css.map */
