@@ -8,7 +8,7 @@
     padding: 45px 15px;
     color: $base-text-color;
     &__title {
-        font-family: Roboto, serif;
+        font-family: 'Roboto', sans-serif;
         font-size: em(24px);
         font-weight: 400;
         line-height: em(29px, 24px);
@@ -17,7 +17,7 @@
     }
     &__text {
         margin: 0;
-        font-family: Roboto, serif;
+        font-family: 'Roboto', sans-serif;
         font-weight: 400;
         line-height: em(26px);
     }

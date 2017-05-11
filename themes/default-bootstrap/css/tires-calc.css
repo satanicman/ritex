@@ -6,7 +6,7 @@
 .tires-calc__title {
   text-align: center;
   font-size: 1.125em;
-  font-family: Roboto, serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 700;
   line-height: 1;
   margin: 0;
@@ -73,7 +73,7 @@
   text-align: center;
   padding: 10px;
   color: #fff;
-  font-family: Roboto, serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 1.125em;
   font-weight: 700;
   margin-bottom: 45px; }

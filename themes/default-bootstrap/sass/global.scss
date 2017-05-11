@@ -25,7 +25,7 @@ body {
 	line-height: 18px;
 	font-size: $f-base;
 	color: $base-body-color;
-	font-family: Roboto, serif;
+	font-family: 'Roboto', sans-serif;
 	background-color: $grey-background;
 	&.content_only {
 		background: none;
@@ -111,7 +111,7 @@ header {
 }
 
 .header__slogan {
-	font-family: Roboto, serif;
+	font-family: 'Roboto', sans-serif;
 	font-size: em(16px);
 	color: $base-text-color;
 	font-weight: 400;
@@ -166,7 +166,7 @@ header {
 	&__link {
 		color: $light-text-color;
 		text-shadow: 0 1px 0.9px rgba(0, 0, 0, 0.7), 0 0 4.9px rgba(255, 255, 255, 0.35);
-		font-family: Roboto, serif;
+		font-family: 'Roboto', sans-serif;
 		font-size: em(17px);
 		font-weight: 700;
 		&:hover {
@@ -192,7 +192,7 @@ header {
 		margin-bottom: 20px;
 		.title__text {
             color: $light-text-color;
-            font-family: Roboto, serif;
+            font-family: 'Roboto', sans-serif;
             font-size: em(15px);
             font-weight: 700;
             line-height: 1;
@@ -685,6 +685,58 @@ span.exclusive {
 }
 
 //form
+div.radio {
+	&, input {
+        min-height: 14px;
+        display: inline-block !important;
+        vertical-align: middle;
+    }
+	input {
+		position: absolute;
+		left: -1px;
+		top: -1px;
+	}
+	&.active,
+	&.focus,
+	&.hover {
+		span {
+			&:before {
+				opacity: 1;
+			}
+		}
+	}
+	span {
+		&.checked {
+			&:before {
+				opacity: 1;
+			}
+		}
+	}
+	&, span, input
+	{
+        width: 14px !important;
+        height: 14px !important;
+	}
+	span {
+        border: 1px solid #ddd !important;
+		background: none !important;
+		&:before {
+			@include transition(opacity .3s);
+			display: inline-block;
+			vertical-align: middle;
+			content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-top: -3px;
+            margin-left: -3px;
+			opacity: 0;
+            width: 6px;
+            height: 6px;
+            background: $dark-background;
+		}
+	}
+}
 div.selector {
 	background: $light-background !important;
 	border: 1px solid rgba(0, 0, 0, 0.19);
@@ -702,7 +754,7 @@ div.selector {
 		position: relative;
 		background: none !important;
 		color: $base-text-color !important;
-		font-family: Roboto, serif;
+		font-family: 'Roboto', sans-serif;
 		font-size: 14px;
 		font-weight: 400;
 		line-height: 37px !important;
@@ -1814,7 +1866,7 @@ div.star a:hover {
 .breadcrumb {
 	padding: 13px 0;
 	background-color: $light-background;
-	font-family: Roboto, serif;
+	font-family: 'Roboto', sans-serif;
 	font-size: em(13px);
 	color: $base-text-color;
 	font-weight: 400;
@@ -1915,7 +1967,7 @@ div.star a:hover {
 		}
 		&__link {
 			color: #1e243f;
-			font-family: Roboto, serif;
+			font-family: 'Roboto', sans-serif;
 			font-size: em(16px);
 			font-weight: 400;
 			line-height: em(40px, 16px);
@@ -1949,7 +2001,7 @@ div.star a:hover {
 	margin: 0;
 	text-align: center;
 	color: #666;
-	font-family: Roboto, serif;
+	font-family: 'Roboto', sans-serif;
 	font-size: 16px;
 	font-weight: 400;
 }
@@ -1957,7 +2009,7 @@ div.star a:hover {
 // btn orange
 .btn_orange {
 	color: $light-text-color;
-	font-family: Roboto, serif;
+	font-family: 'Roboto', sans-serif;
 	font-size: 14px;
 	font-weight: 500;
 	line-height: 1;

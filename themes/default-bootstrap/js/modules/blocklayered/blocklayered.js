@@ -223,29 +223,98 @@ function addSlider(type, data, unit, format)
 	});
 }
 
-function initSliders()
-{
-	$(sliderList).each(function(i, slider){
-		$('#layered_'+slider['type']+'_slider').slider(slider['data']);
+function initSliders() {
+    $(sliderList).each(function (i, slider) {
 
-		var from = '';
-		var to = '';
-		switch (slider['format'])
-		{
-			case 1:
-			case 2:
-			case 3:
-			case 4:
-				from = formatCurrency($('#layered_'+slider['type']+'_slider').slider('values', 0), slider['format'], slider['unit']);
-				to = formatCurrency($('#layered_'+slider['type']+'_slider').slider('values', 1), slider['format'], slider['unit']);
-				break;
-			case 5:
-				from =  $('#layered_'+slider['type']+'_slider').slider('values', 0)+slider['unit']
-				to = $('#layered_'+slider['type']+'_slider').slider('values', 1)+slider['unit'];
-				break;
-		}
-		$('#layered_'+slider['type']+'_range').html(from+' - '+to);
-	});
+        jQuery("input#minCost").val(slider['data']['values'][0]);
+        jQuery("input#maxCost").val(slider['data']['values'][1]);
+
+        jQuery("input#minCost").change(function () {
+            var value1 = jQuery("input#minCost").val();
+            var value2 = jQuery("input#maxCost").val();
+
+            if(isNaN(value1)) {
+                value1 = jQuery("input#minCost").data('value');
+            }
+            if(isNaN(value2)) {
+                value2 = jQuery("input#maxCost").data('value');
+            }
+
+            if (parseInt(value1) > parseInt(value2)) {
+                value1 = value2;
+                jQuery("input#minCost").val(value1);
+            }
+            jQuery('#layered_' + slider['type'] + '_slider').slider("values", 0, value1);
+            reloadContent(true);
+        });
+
+        jQuery("input#maxCost").change(function () {
+            var value1 = jQuery("input#minCost").val();
+            var value2 = jQuery("input#maxCost").val();
+
+            if(isNaN(value1)) {
+                value1 = jQuery("input#minCost").data('value');
+            }
+            if(isNaN(value2)) {
+                value2 = jQuery("input#maxCost").data('value');
+            }
+
+            if (value2 > $(this).data('value')) {
+                value2 = $(this).data('value');
+                jQuery("input#maxCost").val($(this).data('value'))
+            }
+
+            if (parseInt(value1) > parseInt(value2)) {
+                value2 = value1;
+                jQuery("input#maxCost").val(value2);
+            }
+            jQuery('#layered_' + slider['type'] + '_slider').slider("values", 1, value2);
+            reloadContent(true);
+        });
+
+        slider['data']['slide'] = function (event, ui) {
+            jQuery("input#minCost").val(jQuery('#layered_' + slider['type'] + '_slider').slider("values", 0));
+            jQuery("input#maxCost").val(jQuery('#layered_' + slider['type'] + '_slider').slider("values", 1));
+            stopAjaxQuery();
+
+            if (parseInt($(event.target).data('format')) < 5) {
+                from = formatCurrency(ui.values[0], parseInt($(event.target).data('format')),
+                    $(event.target).data('unit'));
+                to = formatCurrency(ui.values[1], parseInt($(event.target).data('format')),
+                    $(event.target).data('unit'));
+            }
+            else {
+                from = ui.values[0] + $(event.target).data('unit');
+                to = ui.values[1] + $(event.target).data('unit');
+            }
+
+            $('#layered_' + $(event.target).data('type') + '_range').html(from + ' - ' + to);
+        };
+        slider['data']['stop'] = function (event, ui) {
+            jQuery("input#minCost").val(jQuery('#layered_' + slider['type'] + '_slider').slider("values", 0));
+            jQuery("input#maxCost").val(jQuery('#layered_' + slider['type'] + '_slider').slider("values", 1));
+            reloadContent(true);
+        };
+
+        $('#layered_' + slider['type'] + '_slider').slider(slider['data']);
+
+        var from = '';
+        var to = '';
+        switch (slider['format']) {
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+                from = formatCurrency($('#layered_' + slider['type'] + '_slider').slider('values', 0), slider['format'], slider['unit']);
+                to = formatCurrency($('#layered_' + slider['type'] + '_slider').slider('values', 1), slider['format'], slider['unit']);
+                break;
+            case 5:
+                from = $('#layered_' + slider['type'] + '_slider').slider('values', 0) + slider['unit']
+                to = $('#layered_' + slider['type'] + '_slider').slider('values', 1) + slider['unit'];
+                break;
+        }
+        $('#layered_' + slider['type'] + '_range').html(from + ' - ' + to);
+    });
 }
 
 function initLayered()

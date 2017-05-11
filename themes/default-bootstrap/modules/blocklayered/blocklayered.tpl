@@ -24,49 +24,49 @@
 *}
 
 {if $nbr_filterBlocks != 0}
-<div id="layered_block_left" class="block">
+<div id="layered_block_left" class="block blocklayered">
 	<p class="title_block">{l s='Catalog' mod='blocklayered'}</p>
 	<div class="block_content">
 		<form action="#" id="layered_form">
 			<div>
-				{if isset($selected_filters) && $n_filters > 0}
-				<div id="enabled_filters">
-					<span class="layered_subtitle" style="float: none;">
-						{l s='Enabled filters:' mod='blocklayered'}
-					</span>
-					<ul>
-						{foreach from=$selected_filters key=filter_type item=filter_values}
-							{foreach from=$filter_values key=filter_key item=filter_value name=f_values}
-								{foreach from=$filters item=filter}
-									{if $filter.type == $filter_type && isset($filter.values)}
-										{if isset($filter.slider)}
-											{if $smarty.foreach.f_values.first}
-												<li>
-													<a href="#" data-rel="layered_{$filter.type}_slider" title="{l s='Cancel' mod='blocklayered'}"></a>
-													{if $filter.format == 1}
-														{l s='%1$s: %2$s - %3$s'|sprintf:$filter.name:{displayPrice price=$filter.values[0]}:{displayPrice price=$filter.values[1]}|escape:'html':'UTF-8' mod='blocklayered'}
-													{else}
-														{l s='%1$s: %2$s %4$s - %3$s %4$s'|sprintf:$filter.name:$filter.values[0]:$filter.values[1]:$filter.unit|escape:'html':'UTF-8' mod='blocklayered'}
-													{/if}
-												</li>
-											{/if}
-										{else}
-											{foreach from=$filter.values key=id_value item=value}
-												{if $id_value == $filter_key && !is_numeric($filter_value) && ($filter.type eq 'id_attribute_group' || $filter.type eq 'id_feature') || $id_value == $filter_value && $filter.type neq 'id_attribute_group' && $filter.type neq 'id_feature'}
-													<li>
-														<a href="#" data-rel="layered_{$filter.type_lite}_{$id_value}" title="{l s='Cancel' mod='blocklayered'}"><i class="icon-remove"></i></a>
-														{l s='%1$s: %2$s' mod='blocklayered' sprintf=[$filter.name, $value.name]}
-													</li>
-												{/if}
-											{/foreach}
-										{/if}
-									{/if}
-								{/foreach}
-							{/foreach}
-						{/foreach}
-					</ul>
-				</div>
-				{/if}
+				{*{if isset($selected_filters) && $n_filters > 0}*}
+				{*<div id="enabled_filters">*}
+					{*<span class="layered_subtitle" style="float: none;">*}
+						{*{l s='Enabled filters:' mod='blocklayered'}*}
+					{*</span>*}
+					{*<ul>*}
+						{*{foreach from=$selected_filters key=filter_type item=filter_values}*}
+							{*{foreach from=$filter_values key=filter_key item=filter_value name=f_values}*}
+								{*{foreach from=$filters item=filter}*}
+									{*{if $filter.type == $filter_type && isset($filter.values)}*}
+										{*{if isset($filter.slider)}*}
+											{*{if $smarty.foreach.f_values.first}*}
+												{*<li>*}
+													{*<a href="#" data-rel="layered_{$filter.type}_slider" title="{l s='Cancel' mod='blocklayered'}"></a>*}
+													{*{if $filter.format == 1}*}
+														{*{l s='%1$s: %2$s - %3$s'|sprintf:$filter.name:{displayPrice price=$filter.values[0]}:{displayPrice price=$filter.values[1]}|escape:'html':'UTF-8' mod='blocklayered'}*}
+													{*{else}*}
+														{*{l s='%1$s: %2$s %4$s - %3$s %4$s'|sprintf:$filter.name:$filter.values[0]:$filter.values[1]:$filter.unit|escape:'html':'UTF-8' mod='blocklayered'}*}
+													{*{/if}*}
+												{*</li>*}
+											{*{/if}*}
+										{*{else}*}
+											{*{foreach from=$filter.values key=id_value item=value}*}
+												{*{if $id_value == $filter_key && !is_numeric($filter_value) && ($filter.type eq 'id_attribute_group' || $filter.type eq 'id_feature') || $id_value == $filter_value && $filter.type neq 'id_attribute_group' && $filter.type neq 'id_feature'}*}
+													{*<li>*}
+														{*<a href="#" data-rel="layered_{$filter.type_lite}_{$id_value}" title="{l s='Cancel' mod='blocklayered'}"><i class="icon-remove"></i></a>*}
+														{*{l s='%1$s: %2$s' mod='blocklayered' sprintf=[$filter.name, $value.name]}*}
+													{*</li>*}
+												{*{/if}*}
+											{*{/foreach}*}
+										{*{/if}*}
+									{*{/if}*}
+								{*{/foreach}*}
+							{*{/foreach}*}
+						{*{/foreach}*}
+					{*</ul>*}
+				{*</div>*}
+				{*{/if}*}
 				{foreach from=$filters item=filter}
 					{if isset($filter.values)}
 						{if isset($filter.slider)}
@@ -74,8 +74,8 @@
 						{else}
 							<div class="layered_filter">
 						{/if}
-                        <div class="layered_subtitle_heading">
-                            <span class="layered_subtitle">{$filter.name|escape:'html':'UTF-8'}</span>
+                        <div class="layered_subtitle_heading blocklayered__heading">
+                            <span class="layered_subtitle blocklayered__subtitle">{$filter.name|escape:'html':'UTF-8'}</span>
                             <!--<span class="layered_close">
                             	<a href="#" data-rel="ul_layered_{$filter.type}_{$filter.id_key}"></a>
                             </span>-->
@@ -138,18 +138,27 @@
 								{/if}
 							{else}
 								{if $filter.filter_type == 0}
-									<label for="{$filter.type}">
-										{l s='Range:' mod='blocklayered'}
-									</label> 
-									<span id="layered_{$filter.type}_range"></span>
+									{*<label for="{$filter.type}">*}
+										{*{l s='Range:' mod='blocklayered'}*}
+									{*</label> *}
+									{*<span id="layered_{$filter.type}_range"></span>*}
 									<div class="layered_slider_container">
 										<div class="layered_slider" id="layered_{$filter.type}_slider" data-type="{$filter.type}" data-format="{$filter.format}" data-unit="{$filter.unit}"></div>
+									</div>
+                                    <div class="blocklayered-price blocklayered__price">
+                                        <p class="blocklayered-price__subtitle">{l s='Цена (%s)' mod='blocklayered' sprintf=$currency->sign}</p>
+                                        <div class="blocklayered-price__bottom">
+                                            <p class="blocklayered-price__subtitle blocklayered-price__subtitle_bottom">{l s='От' mod='blocklayered'}</p>
+                                            <input type="text" id="minCost" class="blocklayered-price__input" value="{$filter.min|intval}" data-value="{$filter.min|intval}"/>
+                                            <p class="blocklayered-price__subtitle blocklayered-price__subtitle_bottom">{l s='До' mod='blocklayered'}</p>
+                                            <input type="text" id="maxCost" class="blocklayered-price__input" value="{$filter.max|intval}" data-value="{$filter.max|intval}"/>
+                                        </div>
 									</div>
 								{else}
 									{if $filter.filter_type == 1}
 									<li class="nomargin row">
 	                                    <div class="col-xs-6 col-sm-12 col-lg-6 first-item">
-	                                    	{l s='From' mod='blocklayered'} 
+	                                    	{l s='From' mod='blocklayered'}
 	                                    	<input class="layered_{$filter.type}_range layered_input_range_min layered_input_range form-control grey" id="layered_{$filter.type}_range_min" type="text" value="{$filter.values[0]}"/>
 	                                    	<span class="layered_{$filter.type}_range_unit">
 	                                    		{$filter.unit}

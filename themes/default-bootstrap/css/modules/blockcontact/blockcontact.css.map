@@ -1,6 +1,6 @@
 {
 "version": 3,
-"mappings": "AAII,gBAAS;EACL,MAAM,EAAE,CAAC;EACT,KAAK,EAAE,OAAO;EACd,WAAW,EAAE,aAAa;EAC1B,SAAS,EAAE,GAAQ;EACnB,WAAW,EAAE,GAAG;EAChB,WAAW,EAAE,IAAI",
+"mappings": "AAII,gBAAS;EACL,MAAM,EAAE,CAAC;EACT,KAAK,EAAE,OAAO;EACd,WAAW,EAAE,oBAAoB;EACjC,SAAS,EAAE,GAAQ;EACnB,WAAW,EAAE,GAAG;EAChB,WAAW,EAAE,IAAI",
 "sources": ["../../../modules/blockcontact/blockcontact.scss"],
 "names": [],
 "file": "blockcontact.css"
