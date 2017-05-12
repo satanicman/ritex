@@ -84,12 +84,12 @@
 				<tr>
 					<th class="cart_product first_item">{l s='Product'}</th>
 					<th class="cart_description item">{l s='Description'}</th>
-					{if $PS_STOCK_MANAGEMENT}
-						{assign var='col_span_subtotal' value='3'}
-						<th class="cart_avail item text-center">{l s='Availability'}</th>
-					{else}
-						{assign var='col_span_subtotal' value='2'}
-					{/if}
+					{*{if $PS_STOCK_MANAGEMENT}*}
+						{*{assign var='col_span_subtotal' value='3'}*}
+						{*<th class="cart_avail item text-center">{l s='Availability'}</th>*}
+					{*{else}*}
+						{*{assign var='col_span_subtotal' value='2'}*}
+					{*{/if}*}
 					<th class="cart_unit item text-right">{l s='Unit price'}</th>
 					<th class="cart_quantity item text-center">{l s='Qty'}</th>
 					<th class="cart_delete last_item">&nbsp;</th>
@@ -121,165 +121,166 @@
 					{/if}
 				{/if}
 
-				{if $use_taxes}
-					{if $priceDisplay}
-						<tr class="cart_total_price">
-							<td rowspan="{$rowspan_total}" colspan="3" id="cart_voucher" class="cart_voucher">
-								{if $voucherAllowed}
-									<form action="{if $opc}{$link->getPageLink('order-opc', true)}{else}{$link->getPageLink('order', true)}{/if}" method="post" id="voucher">
-										<fieldset>
-											<h4>{l s='Vouchers'}</h4>
-											<input type="text" class="discount_name form-control" id="discount_name" name="discount_name" value="{if isset($discount_name) && $discount_name}{$discount_name}{/if}" />
-											<input type="hidden" name="submitDiscount" />
-											<button type="submit" name="submitAddDiscount" class="button btn btn-default button-small"><span>{l s='OK'}</span></button>
-										</fieldset>
-									</form>
-									{if $displayVouchers}
-										<p id="title" class="title-offers">{l s='Take advantage of our exclusive offers:'}</p>
-										<div id="display_cart_vouchers">
-											{foreach $displayVouchers as $voucher}
-												{if $voucher.code != ''}<span class="voucher_name" data-code="{$voucher.code|escape:'html':'UTF-8'}">{$voucher.code|escape:'html':'UTF-8'}</span> - {/if}{$voucher.name}<br />
-											{/foreach}
-										</div>
-									{/if}
-								{/if}
-							</td>
-							<td colspan="{$col_span_subtotal}" class="text-right">{if $display_tax_label}{l s='Total products (tax excl.)'}{else}{l s='Total products'}{/if}</td>
-							<td colspan="2" class="price" id="total_product">{displayPrice price=$total_products}</td>
-						</tr>
-					{else}
-						<tr class="cart_total_price">
-							<td rowspan="{$rowspan_total}" colspan="2" id="cart_voucher" class="cart_voucher">
-								{if $voucherAllowed}
-									<form action="{if $opc}{$link->getPageLink('order-opc', true)}{else}{$link->getPageLink('order', true)}{/if}" method="post" id="voucher">
-										<fieldset>
-											<h4>{l s='Vouchers'}</h4>
-											<input type="text" class="discount_name form-control" id="discount_name" name="discount_name" value="{if isset($discount_name) && $discount_name}{$discount_name}{/if}" />
-											<input type="hidden" name="submitDiscount" />
-											<button type="submit" name="submitAddDiscount" class="button btn btn-default button-small"><span>{l s='OK'}</span></button>
-										</fieldset>
-									</form>
-									{if $displayVouchers}
-										<p id="title" class="title-offers">{l s='Take advantage of our exclusive offers:'}</p>
-										<div id="display_cart_vouchers">
-											{foreach $displayVouchers as $voucher}
-												{if $voucher.code != ''}<span class="voucher_name" data-code="{$voucher.code|escape:'html':'UTF-8'}">{$voucher.code|escape:'html':'UTF-8'}</span> - {/if}{$voucher.name}<br />
-											{/foreach}
-										</div>
-									{/if}
-								{/if}
-							</td>
-							<td colspan="{$col_span_subtotal}" class="text-right">{if $display_tax_label}{l s='Total products (tax incl.)'}{else}{l s='Total products'}{/if}</td>
-							<td colspan="2" class="price" id="total_product">{displayPrice price=$total_products_wt}</td>
-						</tr>
-					{/if}
-				{else}
-					<tr class="cart_total_price">
-						<td rowspan="{$rowspan_total}" colspan="2" id="cart_voucher" class="cart_voucher">
-							{if $voucherAllowed}
-								<form action="{if $opc}{$link->getPageLink('order-opc', true)}{else}{$link->getPageLink('order', true)}{/if}" method="post" id="voucher">
-									<fieldset>
-										<h4>{l s='Vouchers'}</h4>
-										<input type="text" class="discount_name form-control" id="discount_name" name="discount_name" value="{if isset($discount_name) && $discount_name}{$discount_name}{/if}" />
-										<input type="hidden" name="submitDiscount" />
-										<button type="submit" name="submitAddDiscount" class="button btn btn-default button-small">
-											<span>{l s='OK'}</span>
-										</button>
-									</fieldset>
-								</form>
-								{if $displayVouchers}
-									<p id="title" class="title-offers">{l s='Take advantage of our exclusive offers:'}</p>
-									<div id="display_cart_vouchers">
-										{foreach $displayVouchers as $voucher}
-											{if $voucher.code != ''}<span class="voucher_name" data-code="{$voucher.code|escape:'html':'UTF-8'}">{$voucher.code|escape:'html':'UTF-8'}</span> - {/if}{$voucher.name}<br />
-										{/foreach}
-									</div>
-								{/if}
-							{/if}
-						</td>
-						<td colspan="{$col_span_subtotal}" class="text-right">{l s='Total products'}</td>
-						<td colspan="2" class="price" id="total_product">{displayPrice price=$total_products}</td>
-					</tr>
-				{/if}
-				<tr{if $total_wrapping == 0} style="display: none;"{/if}>
-					<td colspan="3" class="text-right">
-						{if $use_taxes}
-							{if $display_tax_label}{l s='Total gift wrapping (tax incl.)'}{else}{l s='Total gift-wrapping cost'}{/if}
-						{else}
-							{l s='Total gift-wrapping cost'}
-						{/if}
-					</td>
-					<td colspan="2" class="price-discount price" id="total_wrapping">
-						{if $use_taxes}
-							{if $priceDisplay}
-								{displayPrice price=$total_wrapping_tax_exc}
-							{else}
-								{displayPrice price=$total_wrapping}
-							{/if}
-						{else}
-							{displayPrice price=$total_wrapping_tax_exc}
-						{/if}
-					</td>
-				</tr>
-				{if $total_shipping_tax_exc <= 0 && (!isset($isVirtualCart) || !$isVirtualCart) && $free_ship}
-					<tr class="cart_total_delivery{if !$opc && (!isset($cart->id_address_delivery) || !$cart->id_address_delivery)} unvisible{/if}">
-						<td colspan="{$col_span_subtotal}" class="text-right">{l s='Total shipping'}</td>
-						<td colspan="2" class="price" id="total_shipping">{l s='Free shipping!'}</td>
-					</tr>
-				{else}
-					{if $use_taxes && $total_shipping_tax_exc != $total_shipping}
-						{if $priceDisplay}
-							<tr class="cart_total_delivery{if $total_shipping_tax_exc <= 0} unvisible{/if}">
-								<td colspan="{$col_span_subtotal}" class="text-right">{if $display_tax_label}{l s='Total shipping (tax excl.)'}{else}{l s='Total shipping'}{/if}</td>
-								<td colspan="2" class="price" id="total_shipping">{displayPrice price=$total_shipping_tax_exc}</td>
-							</tr>
-						{else}
-							<tr class="cart_total_delivery{if $total_shipping <= 0} unvisible{/if}">
-								<td colspan="{$col_span_subtotal}" class="text-right">{if $display_tax_label}{l s='Total shipping (tax incl.)'}{else}{l s='Total shipping'}{/if}</td>
-								<td colspan="2" class="price" id="total_shipping" >{displayPrice price=$total_shipping}</td>
-							</tr>
-						{/if}
-					{else}
-						<tr class="cart_total_delivery{if $total_shipping_tax_exc <= 0} unvisible{/if}">
-							<td colspan="{$col_span_subtotal}" class="text-right">{l s='Total shipping'}</td>
-							<td colspan="2" class="price" id="total_shipping" >{displayPrice price=$total_shipping_tax_exc}</td>
-						</tr>
-					{/if}
-				{/if}
-				<tr class="cart_total_voucher{if $total_discounts == 0} unvisible{/if}">
-					<td colspan="{$col_span_subtotal}" class="text-right">
-						{if $display_tax_label}
-							{if $use_taxes && $priceDisplay == 0}
-								{l s='Total vouchers (tax incl.)'}
-							{else}
-								{l s='Total vouchers (tax excl.)'}
-							{/if}
-						{else}
-							{l s='Total vouchers'}
-						{/if}
-					</td>
-					<td colspan="2" class="price-discount price" id="total_discount">
-						{if $use_taxes && $priceDisplay == 0}
-							{assign var='total_discounts_negative' value=$total_discounts * -1}
-						{else}
-							{assign var='total_discounts_negative' value=$total_discounts_tax_exc * -1}
-						{/if}
-						{displayPrice price=$total_discounts_negative}
-					</td>
-				</tr>
-				{if $use_taxes && $show_taxes && $total_tax != 0 }
-					{if $priceDisplay != 0}
-					<tr class="cart_total_price">
-						<td colspan="{$col_span_subtotal}" class="text-right">{if $display_tax_label}{l s='Total (tax excl.)'}{else}{l s='Total'}{/if}</td>
-						<td colspan="2" class="price" id="total_price_without_tax">{displayPrice price=$total_price_without_tax}</td>
-					</tr>
-					{/if}
-					<tr class="cart_total_tax">
-						<td colspan="{$col_span_subtotal}" class="text-right">{l s='Tax'}</td>
-						<td colspan="2" class="price" id="total_tax">{displayPrice price=$total_tax}</td>
-					</tr>
-				{/if}
+				{*{if $use_taxes}*}
+					{*{if $priceDisplay}*}
+						{*<tr class="cart_total_price">*}
+							{*<td rowspan="{$rowspan_total}" colspan="3" id="cart_voucher" class="cart_voucher">*}
+								{*{if $voucherAllowed}*}
+									{*<form action="{if $opc}{$link->getPageLink('order-opc', true)}{else}{$link->getPageLink('order', true)}{/if}" method="post" id="voucher">*}
+										{*<fieldset>*}
+											{*<h4>{l s='Vouchers'}</h4>*}
+											{*<input type="text" class="discount_name form-control" id="discount_name" name="discount_name" value="{if isset($discount_name) && $discount_name}{$discount_name}{/if}" />*}
+											{*<input type="hidden" name="submitDiscount" />*}
+											{*<button type="submit" name="submitAddDiscount" class="button btn btn-default button-small"><span>{l s='OK'}</span></button>*}
+										{*</fieldset>*}
+									{*</form>*}
+									{*{if $displayVouchers}*}
+										{*<p id="title" class="title-offers">{l s='Take advantage of our exclusive offers:'}</p>*}
+										{*<div id="display_cart_vouchers">*}
+											{*{foreach $displayVouchers as $voucher}*}
+												{*{if $voucher.code != ''}<span class="voucher_name" data-code="{$voucher.code|escape:'html':'UTF-8'}">{$voucher.code|escape:'html':'UTF-8'}</span> - {/if}{$voucher.name}<br />*}
+											{*{/foreach}*}
+										{*</div>*}
+									{*{/if}*}
+								{*{/if}*}
+							{*</td>*}
+							{*<td colspan="{$col_span_subtotal}" class="text-right">{if $display_tax_label}{l s='Total products (tax excl.)'}{else}{l s='Total products'}{/if}</td>*}
+							{*<td colspan="2" class="price" id="total_product">{displayPrice price=$total_products}</td>*}
+						{*</tr>*}
+					{*{else}*}
+						{*<tr class="cart_total_price">*}
+							{*<td rowspan="{$rowspan_total}" colspan="2" id="cart_voucher" class="cart_voucher">*}
+								{*{if $voucherAllowed}*}
+									{*<form action="{if $opc}{$link->getPageLink('order-opc', true)}{else}{$link->getPageLink('order', true)}{/if}" method="post" id="voucher">*}
+										{*<fieldset>*}
+											{*<h4>{l s='Vouchers'}</h4>*}
+											{*<input type="text" class="discount_name form-control" id="discount_name" name="discount_name" value="{if isset($discount_name) && $discount_name}{$discount_name}{/if}" />*}
+											{*<input type="hidden" name="submitDiscount" />*}
+											{*<button type="submit" name="submitAddDiscount" class="button btn btn-default button-small"><span>{l s='OK'}</span></button>*}
+										{*</fieldset>*}
+									{*</form>*}
+									{*{if $displayVouchers}*}
+										{*<p id="title" class="title-offers">{l s='Take advantage of our exclusive offers:'}</p>*}
+										{*<div id="display_cart_vouchers">*}
+											{*{foreach $displayVouchers as $voucher}*}
+												{*{if $voucher.code != ''}<span class="voucher_name" data-code="{$voucher.code|escape:'html':'UTF-8'}">{$voucher.code|escape:'html':'UTF-8'}</span> - {/if}{$voucher.name}<br />*}
+											{*{/foreach}*}
+										{*</div>*}
+									{*{/if}*}
+								{*{/if}*}
+							{*</td>*}
+							{*<td colspan="{$col_span_subtotal}" class="text-right">{if $display_tax_label}{l s='Total products (tax incl.)'}{else}{l s='Total products'}{/if}</td>*}
+							{*<td colspan="2" class="price" id="total_product">{displayPrice price=$total_products_wt}</td>*}
+						{*</tr>*}
+					{*{/if}*}
+				{*{else}*}
+					{*<tr class="cart_total_price">*}
+						{*<td rowspan="{$rowspan_total}" colspan="2" id="cart_voucher" class="cart_voucher">*}
+							{*{if $voucherAllowed}*}
+								{*<form action="{if $opc}{$link->getPageLink('order-opc', true)}{else}{$link->getPageLink('order', true)}{/if}" method="post" id="voucher">*}
+									{*<fieldset>*}
+										{*<h4>{l s='Vouchers'}</h4>*}
+										{*<input type="text" class="discount_name form-control" id="discount_name" name="discount_name" value="{if isset($discount_name) && $discount_name}{$discount_name}{/if}" />*}
+										{*<input type="hidden" name="submitDiscount" />*}
+										{*<button type="submit" name="submitAddDiscount" class="button btn btn-default button-small">*}
+											{*<span>{l s='OK'}</span>*}
+										{*</button>*}
+									{*</fieldset>*}
+								{*</form>*}
+								{*{if $displayVouchers}*}
+									{*<p id="title" class="title-offers">{l s='Take advantage of our exclusive offers:'}</p>*}
+									{*<div id="display_cart_vouchers">*}
+										{*{foreach $displayVouchers as $voucher}*}
+											{*{if $voucher.code != ''}<span class="voucher_name" data-code="{$voucher.code|escape:'html':'UTF-8'}">{$voucher.code|escape:'html':'UTF-8'}</span> - {/if}{$voucher.name}<br />*}
+										{*{/foreach}*}
+									{*</div>*}
+								{*{/if}*}
+							{*{/if}*}
+						{*</td>*}
+						{*<td colspan="{$col_span_subtotal}" class="text-right">{l s='Total products'}</td>*}
+						{*<td colspan="2" class="price" id="total_product">{displayPrice price=$total_products}</td>*}
+					{*</tr>*}
+				{*{/if}*}
+				{*<tr{if $total_wrapping == 0} style="display: none;"{/if}>*}
+					{*<td colspan="3" class="text-right">*}
+						{*{if $use_taxes}*}
+							{*{if $display_tax_label}{l s='Total gift wrapping (tax incl.)'}{else}{l s='Total gift-wrapping cost'}{/if}*}
+						{*{else}*}
+							{*{l s='Total gift-wrapping cost'}*}
+						{*{/if}*}
+					{*</td>*}
+					{*<td colspan="2" class="price-discount price" id="total_wrapping">*}
+						{*{if $use_taxes}*}
+							{*{if $priceDisplay}*}
+								{*{displayPrice price=$total_wrapping_tax_exc}*}
+							{*{else}*}
+								{*{displayPrice price=$total_wrapping}*}
+							{*{/if}*}
+						{*{else}*}
+							{*{displayPrice price=$total_wrapping_tax_exc}*}
+						{*{/if}*}
+					{*</td>*}
+				{*</tr>*}
+				{*{if $total_shipping_tax_exc <= 0 && (!isset($isVirtualCart) || !$isVirtualCart) && $free_ship}*}
+					{*<tr class="cart_total_delivery{if !$opc && (!isset($cart->id_address_delivery) || !$cart->id_address_delivery)} unvisible{/if}">*}
+						{*<td colspan="{$col_span_subtotal}" class="text-right">{l s='Total shipping'}</td>*}
+						{*<td colspan="2" class="price" id="total_shipping">{l s='Free shipping!'}</td>*}
+					{*</tr>*}
+				{*{else}*}
+					{*{if $use_taxes && $total_shipping_tax_exc != $total_shipping}*}
+						{*{if $priceDisplay}*}
+							{*<tr class="cart_total_delivery{if $total_shipping_tax_exc <= 0} unvisible{/if}">*}
+								{*<td colspan="{$col_span_subtotal}" class="text-right">{if $display_tax_label}{l s='Total shipping (tax excl.)'}{else}{l s='Total shipping'}{/if}</td>*}
+								{*<td colspan="2" class="price" id="total_shipping">{displayPrice price=$total_shipping_tax_exc}</td>*}
+							{*</tr>*}
+						{*{else}*}
+							{*<tr class="cart_total_delivery{if $total_shipping <= 0} unvisible{/if}">*}
+								{*<td colspan="{$col_span_subtotal}" class="text-right">{if $display_tax_label}{l s='Total shipping (tax incl.)'}{else}{l s='Total shipping'}{/if}</td>*}
+								{*<td colspan="2" class="price" id="total_shipping" >{displayPrice price=$total_shipping}</td>*}
+							{*</tr>*}
+						{*{/if}*}
+					{*{else}*}
+						{*<tr class="cart_total_delivery{if $total_shipping_tax_exc <= 0} unvisible{/if}">*}
+							{*<td colspan="{$col_span_subtotal}" class="text-right">{l s='Total shipping'}</td>*}
+							{*<td colspan="2" class="price" id="total_shipping" >{displayPrice price=$total_shipping_tax_exc}</td>*}
+						{*</tr>*}
+					{*{/if}*}
+				{*{/if}*}
+				{*<tr class="cart_total_voucher{if $total_discounts == 0} unvisible{/if}">*}
+					{*<td colspan="{$col_span_subtotal}" class="text-right">*}
+						{*{if $display_tax_label}*}
+							{*{if $use_taxes && $priceDisplay == 0}*}
+								{*{l s='Total vouchers (tax incl.)'}*}
+							{*{else}*}
+								{*{l s='Total vouchers (tax excl.)'}*}
+							{*{/if}*}
+						{*{else}*}
+							{*{l s='Total vouchers'}*}
+						{*{/if}*}
+					{*</td>*}
+					{*<td colspan="2" class="price-discount price" id="total_discount">*}
+						{*{if $use_taxes && $priceDisplay == 0}*}
+							{*{assign var='total_discounts_negative' value=$total_discounts * -1}*}
+						{*{else}*}
+							{*{assign var='total_discounts_negative' value=$total_discounts_tax_exc * -1}*}
+						{*{/if}*}
+						{*{displayPrice price=$total_discounts_negative}*}
+					{*</td>*}
+				{*</tr>*}
+				{*{if $use_taxes && $show_taxes && $total_tax != 0 }*}
+					{*{if $priceDisplay != 0}*}
+					{*<tr class="cart_total_price">*}
+						{*<td colspan="{$col_span_subtotal}" class="text-right">{if $display_tax_label}{l s='Total (tax excl.)'}{else}{l s='Total'}{/if}</td>*}
+						{*<td colspan="2" class="price" id="total_price_without_tax">{displayPrice price=$total_price_without_tax}</td>*}
+					{*</tr>*}
+					{*{/if}*}
+					{*<tr class="cart_total_tax">*}
+						{*<td colspan="{$col_span_subtotal}" class="text-right">{l s='Tax'}</td>*}
+						{*<td colspan="2" class="price" id="total_tax">{displayPrice price=$total_tax}</td>*}
+					{*</tr>*}
+				{*{/if}*}
 				<tr class="cart_total_price">
+					<td colspan="2"></td>
 					<td colspan="{$col_span_subtotal}" class="total_price_container text-right">
 						<span>{l s='Total'}</span>
                         <div class="hookDisplayProductPriceBlock-price">
@@ -287,11 +288,11 @@
                         </div>
 					</td>
 					{if $use_taxes}
-						<td colspan="2" class="price" id="total_price_container">
+						<td colspan="3" class="price" id="total_price_container">
 							<span id="total_price">{displayPrice price=$total_price}</span>
 						</td>
 					{else}
-						<td colspan="2" class="price" id="total_price_container">
+						<td colspan="3" class="price" id="total_price_container">
 							<span id="total_price">{displayPrice price=$total_price_without_tax}</span>
 						</td>
 					{/if}
@@ -552,6 +553,7 @@
 		<a href="{if (isset($smarty.server.HTTP_REFERER) && ($smarty.server.HTTP_REFERER == $link->getPageLink('order', true) || $smarty.server.HTTP_REFERER == $link->getPageLink('order-opc', true) || strstr($smarty.server.HTTP_REFERER, 'step='))) || !isset($smarty.server.HTTP_REFERER)}{$link->getPageLink('index')}{else}{$smarty.server.HTTP_REFERER|escape:'html':'UTF-8'|secureReferrer}{/if}" class="button-exclusive btn btn-default" title="{l s='Continue shopping'}">
 			<i class="icon-chevron-left"></i>{l s='Continue shopping'}
 		</a>
+		<button class="btn btn_orange pull-right" id="quickorder">{l s="Оформить заказ"}</button>
 	</p>
 	<div class="clear"></div>
 	<div class="cart_navigation_extra">

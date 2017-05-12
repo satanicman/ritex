@@ -3,6 +3,7 @@
   display: block;
   position: absolute;
   top: 0;
+  line-height: 1.42857;
   right: 0;
   border: none;
   color: #fff;

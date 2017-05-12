@@ -125,7 +125,7 @@
 					</div>
 				</header>
 				<nav class="menu">
-					<div class="container">
+					<div class="menu__container container">
 						<div class="row">
                             {capture name='displayTopMenu'}{hook h='displayTopMenu'}{/capture}
                             {if $smarty.capture.displayTopMenu}

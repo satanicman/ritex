@@ -5426,6 +5426,8 @@ header .row > .container, header .row > .slick-dots {
   background-color: #f57f1f;
   z-index: 5004;
   position: relative; }
+.menu__container {
+  position: relative; }
 .menu__list {
   padding: 0;
   margin: 0;
