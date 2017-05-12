@@ -215,6 +215,7 @@ Product list(Grid) Styles
 ul.product_list.grid .slick-track,
 ul.product_list.grid {
 	> li {
+		padding-bottom: 30px;
 		text-align: center;
 		@media (min-width: $screen-xs) and (max-width: $screen-xs-max) { // min 480px max 767px
 			width: 50%;
@@ -231,6 +232,13 @@ ul.product_list.grid {
 			padding: 0;
 			position: relative;
 			@include box-shadow(0 0 15px rgba(25, 30, 35, 0.3));
+			@include transition(box-shadow .3s);
+            &:hover {
+                @include box-shadow(none);
+                .button.ajax_add_to_cart_button {
+                    background: #f63;
+                }
+            }
 			.product-image-container {
 				background-color: rgba(#e2e8eb, .5);
 				@media (max-width: $screen-xs-max) { // max 767px
@@ -312,6 +320,11 @@ ul.product_list.grid {
 				clear: left;
 			}
 		}
+	}
+}
+ul.product_list.grid .slick-track {
+	> li {
+		padding-bottom: 0;
 	}
 }
 #blockpack {

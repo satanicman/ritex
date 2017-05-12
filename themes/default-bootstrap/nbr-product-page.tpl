@@ -66,7 +66,7 @@
 						{assign var="lastnValue" value=$nValue}
 					{/foreach}
 				</select>
-				<span>{l s='per page'}</span>
+				{*<span>{l s='per page'}</span>*}
 			</div>
 		</form>
 	{/if}

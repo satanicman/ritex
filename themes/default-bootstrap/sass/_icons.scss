@@ -3,6 +3,10 @@
 // sprite
 @import "sprite";
 
+.selector1 div.selector span::before,
+.select-chevron-icon {
+	@include sprite($select-chevron-icon);
+}
 .tires-calc__row::after,
 .corner-icon {
 	@include sprite($corner-icon);

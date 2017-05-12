@@ -52,6 +52,10 @@ textarea {
 	padding-bottom: 100px;
 }
 
+#left_column {
+	padding-top: 50px;
+}
+
 #index {
 	.tab-content {
 		margin-top: 35px;
@@ -632,6 +636,7 @@ span.exclusive {
 	text-align: center;
 	padding: 16px 14px;
 	background: $orange-background;
+    @include transition(background .3s);
 	span {
 		display: inline-block;
 		position: relative;
@@ -651,8 +656,6 @@ span.exclusive {
 	}
 	&:hover {
 		border: none;
-		span {
-		}
 	}
 }
 
@@ -734,6 +737,32 @@ div.radio {
             width: 6px;
             height: 6px;
             background: $dark-background;
+		}
+	}
+}
+.selector1 {
+	div.selector {
+		background-color: transparent !important;
+		border: none;
+		@include border-radius(0);
+		@include box-shadow(none);
+		height: 25px !important;
+		line-height: 25px;
+		padding-left: 0 !important;
+        select,
+        span {
+            min-height: 25px;
+        }
+		span {
+			height: 25px !important;
+			line-height: 25px !important;
+			font-family: "Open Sans", sans-serif;
+			font-size: 15px;
+			font-weight: 400;
+			padding-right: 18px !important;
+			&:before {
+				margin-top: -5px;
+			}
 		}
 	}
 }
@@ -1351,12 +1380,11 @@ ul.footer_links {
 // barre comparaison / tri
 .content_sortPagiBar {
 	.sortPagiBar {
-		border-bottom: 1px solid $base-border-color;
 		clear: both;
+		margin-bottom: 25px;
 		#productsSortForm {
-			float: left;
-			margin-right: 20px;
-			margin-bottom: 10px;
+			float: right;
+			margin-right: 70px;
 			select {
 				max-width: 192px;
 				float: left;
@@ -1369,7 +1397,7 @@ ul.footer_links {
 			}
 		}
 		.nbrItemPage {
-			float: left;
+			float: right;
 			select {
 				max-width: 59px;
 				float: left;
@@ -1388,7 +1416,13 @@ ul.footer_links {
 			float: left;
 		}
 		label {
-			padding: 3px 6px 0 0;
+			color: #868ca7;
+			font-family: "Open Sans", serif;
+			font-size: em(15px);
+			font-weight: 400;
+			line-height: 25px;
+			margin: 0;
+			padding: 0 10px 0 0;
 		}
 		&.instant_search {
 			#productsSortForm {
@@ -1444,16 +1478,16 @@ ul.footer_links {
 .top-pagination-content,
 .bottom-pagination-content {
 	text-align: center;
-	padding: 12px 0 12px 0;
+	padding: 0;
 	position: relative;
 	div.pagination {
 		margin: 0;
 		float: right;
-		width: 530px;
+		//width: 530px;
 		text-align: center;
 		// min 992px max 1199px
 		@media (min-width: $screen-md) and (max-width: $screen-md-max) {
-			width: 380px;
+			width: auto;
 		}
 		// max 991px
 		@media (max-width: $screen-sm-max) {
@@ -1481,32 +1515,49 @@ ul.footer_links {
 		}
 	}
 	ul.pagination {
-		margin: 8px 0px 8px 0;
+		margin: 0;
+		vertical-align: middle;
 		// max 991px
-		@media (max-width: $screen-sm-max) {
-			float: left;
-		}
 		li {
 			display: inline-block;
+			vertical-align: middle;
 			float: left;
+			padding: 0;
+			background: none;
+            &:last-of-type {
+				> a,
+				> span {
+					padding-right: 0;
+				}
+			}
 			> a,
 			> span {
-				margin: 0 1px 0 0px;
-				padding: 0;
+				margin: 0;
+				padding: 0 5px;
 				font-weight: bold;
-				border: 1px solid;
-				border-color: #dfdede #d2d0d0 #b0afaf #d2d0d0;
+				border: none;
+				background: none;
 				display: block;
 				span {
-					border: 1px solid $light-border-color;
-					padding: 2px 8px;
+					color: #1d3045;
+					font-family: "Open Sans", sans-serif;
+					font-size: em(16px);
+					font-weight: 700;
+					line-height: 1;
+					text-transform: uppercase;
+
+					border: none;
+					padding: 2px 10px;
 					display: block;
-					background: url(../img/pagination-li.gif) 0 0 repeat-x $pagination-bgcolor;
+					background: none;
+					@include border-radius(9px);
+					@include transition(all .3s);
 				}
 			}
 			> a:hover {
 				span {
 					background: $pagination-hover-bg;
+					color: $light-text-color;
 				}
 			}
 			&.pagination_previous,
@@ -1543,9 +1594,9 @@ ul.footer_links {
 			}
 			&.active {
 				> span {
-					color: $base-text-color;
-					border-color: #dfdede #d2d0d0 #b0afaf #d2d0d0;
+					background: none;
 					span {
+						color: $light-text-color;
 						background: $pagination-hover-bg;
 					}
 				}
@@ -1574,7 +1625,8 @@ ul.footer_links {
 }
 
 .bottom-pagination-content {
-	border-top: 1px solid $base-border-color;
+	//border-top: 1px solid $base-border-color;
+	padding: 5px 0;
 }
 
 //CART steps
@@ -1827,8 +1879,18 @@ div.star a:hover {
 }
 
 #page .rte {
-	background: transparent none repeat scroll 0 0;
-
+	background-color: $light-text-color;
+	@include box-shadow(0 25px 30px rgba(110, 110, 110, 0.35));
+	padding: 40px;
+	font-family: Roboto, sans-serif;
+	color: $base-text-color;
+	line-height: 24px;
+	font-weight: 400;
+	margin-top: 45px;
+	h6 {
+		font-weight: 700;
+		font-size: em(18px);
+	}
 	em {
 		font-style: italic !important;
 	}
@@ -1873,7 +1935,7 @@ div.star a:hover {
 	text-transform: uppercase;
 	line-height: 24px;
 	overflow: hidden;
-	margin-bottom: 25px;
+	margin-bottom: 15px;
 	position: relative;
 	z-index: 1;
 	border-bottom: 1px solid #ccc;

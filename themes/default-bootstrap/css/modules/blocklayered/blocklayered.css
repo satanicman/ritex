@@ -197,6 +197,9 @@
 
 .blocklayered {
   background-color: #fff;
+  -moz-box-shadow: 0 10px 20px rgba(192, 197, 217, 0.25);
+  -webkit-box-shadow: 0 10px 20px rgba(192, 197, 217, 0.25);
+  box-shadow: 0 10px 20px rgba(192, 197, 217, 0.25);
   padding: 20px 15px; }
 .blocklayered__subtitle {
   color: #000;
