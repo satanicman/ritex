@@ -194,10 +194,10 @@ header {
 		padding: 0;
 		margin-top: 0;
 		margin-bottom: 20px;
+		font-size: em(15px);
 		.title__text {
             color: $light-text-color;
             font-family: 'Roboto', sans-serif;
-            font-size: em(15px);
             font-weight: 700;
             line-height: 1;
             text-transform: uppercase;
@@ -277,7 +277,12 @@ p.info-account {
 .label {
 	white-space: normal;
 	display: inline-block;
-	padding: 6px 10px;
+	padding: 0;
+	&-success {
+		background: none;
+		border: none;
+		color: #3c3;
+	}
 }
 
 label {
@@ -532,7 +537,7 @@ span.exclusive {
 		outline: 0;
 		position: absolute;
 		top: 50%;
-		margin-top: -25px;
+		@include transform(translateY(-50%));
 		display: inline-block;
 		text-align: center;
 		text-indent: -99999px;
@@ -1894,6 +1899,23 @@ div.star a:hover {
 	em {
 		font-style: italic !important;
 	}
+    &_dark {
+		background-color: $dark-background;
+		@include box-shadow(0 8px 15px rgba(129, 129, 129, 0.35));
+		color: $light-text-color;
+	}
+    &_description {
+		background-position: 50% 50%;
+		@include background-size(cover);
+		background-image: url(../img/description.jpg);
+	}
+    &__title {
+		color: #f47e1f;
+		font-size: 24px;
+		font-weight: 700;
+		line-height: 1;
+		margin-bottom: 35px;
+	}
 }
 
 .listcomment {
@@ -2069,18 +2091,35 @@ div.star a:hover {
 }
 
 // btn orange
-.btn_orange {
-	color: $light-text-color;
+.btn {
 	font-family: 'Roboto', sans-serif;
 	font-size: 14px;
 	font-weight: 500;
 	line-height: 1;
 	text-transform: uppercase;
 
-	background-color: $orange-background;
+	border: none;
 	padding: 12px 25px;
 	@include border-radius(3px);
-	@include box-shadow(0 8px 15px rgba(245, 129, 35, 0.35));
+	@include transition(box-shadow .3s);
+	&_orange {
+		color: $light-text-color;
+		background-color: $orange-background;
+		@include box-shadow(0 8px 15px rgba(245, 129, 35, 0.35));
+		&:hover {
+			color: $light-text-color;
+			@include box-shadow(none);
+		}
+	}
+	&_blue {
+		color: $light-text-color;
+        background-color: #3357b4;
+        @include box-shadow(0 8px 15px rgba(51, 87, 180, 0.35));
+		&:hover {
+			color: $light-text-color;
+			@include box-shadow(none);
+		}
+    }
 }
 
 #reinsurance_block {

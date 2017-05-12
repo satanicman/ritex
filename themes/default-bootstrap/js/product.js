@@ -129,24 +129,13 @@ $(document).ready(function()
 	serialScrollSetNbImages();
 
 	//init the serialScroll for thumbs
-	if (!!$.prototype.serialScroll)
-		$('#thumbs_list').serialScroll({
-			items:'li:visible',
-			prev:'#view_scroll_left',
-			next:'#view_scroll_right',
-			axis:'x',
-			offset:0,
-			start:0,
-			stop:true,
-			onBefore:serialScrollFixLock,
-			duration:700,
-			lazy: true,
-			lock: false,
-			force:false,
-			cycle:false
-		});
-
-	$('#thumbs_list').trigger('goto', 0);
+	if (!!$.prototype.slick)
+		$('#thumbs_list_frame').slick({
+            slidesToScroll: 1,
+            slidesToShow: 3
+        });
+    //
+	// $('#thumbs_list').trigger('goto', 0);
 
 	//set jqZoom parameters if needed
 	if (typeof(jqZoomEnabled) !== 'undefined' && jqZoomEnabled)
@@ -955,8 +944,8 @@ function serialScrollFixLock(event, targeted, scrolled, items, position)
 	var leftArrow = position == 0 ? true : false;
 	var rightArrow = position + serialScrollNbImagesDisplayed >= serialScrollNbImages ? true : false;
 
-	$('#view_scroll_left').css('cursor', leftArrow ? 'default' : 'pointer').css('display', leftArrow ? 'none' : 'block').fadeTo(0, leftArrow ? 0 : 1);
-	$('#view_scroll_right').css('cursor', rightArrow ? 'default' : 'pointer').fadeTo(0, rightArrow ? 0 : 1).css('display', rightArrow ? 'none' : 'block');
+	// $('#view_scroll_left').css('cursor', leftArrow ? 'default' : 'pointer').css('display', leftArrow ? 'none' : 'block').fadeTo(0, leftArrow ? 0 : 1);
+	// $('#view_scroll_right').css('cursor', rightArrow ? 'default' : 'pointer').fadeTo(0, rightArrow ? 0 : 1).css('display', rightArrow ? 'none' : 'block');
 	return true;
 }
 
@@ -1011,13 +1000,13 @@ function refreshProductImages(id_product_attribute)
 		}
 	}
 
-	if (parseInt($('#thumbs_list_frame >li:visible').length) != parseInt($('#thumbs_list_frame >li').length))
-		$('#wrapResetImages').stop(true, true).show();
-	else
-		$('#wrapResetImages').stop(true, true).hide();
-
-	$('#thumbs_list_frame').width(parseInt($('#thumbs_list_frame >li').outerWidth(true) * $('#thumbs_list_frame >li').length) + 'px');
-	$('#thumbs_list').trigger('goto', 0);
+	// if (parseInt($('#thumbs_list_frame >li:visible').length) != parseInt($('#thumbs_list_frame >li').length))
+	// 	$('#wrapResetImages').stop(true, true).show();
+	// else
+	// 	$('#wrapResetImages').stop(true, true).hide();
+    //
+	// $('#thumbs_list_frame').width(parseInt($('#thumbs_list_frame >li').outerWidth(true) * $('#thumbs_list_frame >li').length) + 'px');
+	// $('#thumbs_list').trigger('goto', 0);
 	serialScrollFixLock('', '', '', '', 0);
 }
 

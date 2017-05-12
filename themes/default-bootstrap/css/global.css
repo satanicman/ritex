@@ -5179,7 +5179,7 @@ th.visible-print, td.visible-print {
 
 .selector1 div.selector span::before, .select-chevron-icon {
   background-image: url(../img/sprite.png);
-  background-position: -227px -161px;
+  background-position: -286px -161px;
   width: 17px;
   height: 10px; }
 
@@ -5191,7 +5191,7 @@ th.visible-print, td.visible-print {
 
 .applicability_1 {
   background-image: url(../img/sprite.png);
-  background-position: -73px -246px;
+  background-position: -334px -73px;
   width: 41px;
   height: 41px; }
 
@@ -5203,25 +5203,25 @@ th.visible-print, td.visible-print {
 
 .applicability_3 {
   background-image: url(../img/sprite.png);
-  background-position: -119px -246px;
+  background-position: -123px -246px;
   width: 47px;
   height: 35px; }
 
 .axis_1 {
   background-image: url(../img/sprite.png);
-  background-position: -40px -309px;
+  background-position: 0px -309px;
   width: 35px;
   height: 46px; }
 
 .axis_2 {
   background-image: url(../img/sprite.png);
-  background-position: 0px -309px;
+  background-position: -80px -309px;
   width: 35px;
   height: 46px; }
 
 .axis_3 {
   background-image: url(../img/sprite.png);
-  background-position: -80px -309px;
+  background-position: -40px -309px;
   width: 35px;
   height: 46px; }
 
@@ -5233,7 +5233,7 @@ th.visible-print, td.visible-print {
 
 .car-icon {
   background-image: url(../img/sprite.png);
-  background-position: -165px -186px;
+  background-position: -214px -186px;
   width: 65px;
   height: 27px; }
 
@@ -5245,7 +5245,7 @@ th.visible-print, td.visible-print {
 
 .car-switcher__input_car:checked + .icon, .car-switcher__input_car:checked + [class^="icon-"], .car-selected-icon {
   background-image: url(../img/sprite.png);
-  background-position: -307px -129px;
+  background-position: -284px -186px;
   width: 65px;
   height: 27px; }
 
@@ -5257,19 +5257,19 @@ th.visible-print, td.visible-print {
 
 .characteristics_1 {
   background-image: url(../img/sprite.png);
-  background-position: -267px -73px;
+  background-position: -85px -186px;
   width: 44px;
   height: 48px; }
 
 .characteristics_2 {
   background-image: url(../img/sprite.png);
-  background-position: -316px -73px;
+  background-position: -73px -246px;
   width: 45px;
   height: 45px; }
 
 div.selector span:before, .select-icon {
   background-image: url(../img/sprite.png);
-  background-position: -171px -246px;
+  background-position: -175px -246px;
   width: 29px;
   height: 29px; }
 
@@ -5285,9 +5285,21 @@ div.selector span:before, .select-icon {
   width: 50px;
   height: 50px; }
 
+#thumbs_list .slick-next, .slider-next-small-icon {
+  background-image: url(../img/sprite.png);
+  background-position: -209px -246px;
+  width: 27px;
+  height: 27px; }
+
+#thumbs_list .slick-prev, .slider-prev-small-icon {
+  background-image: url(../img/sprite.png);
+  background-position: -241px -246px;
+  width: 27px;
+  height: 27px; }
+
 .truck-icon {
   background-image: url(../img/sprite.png);
-  background-position: -85px -186px;
+  background-position: -134px -186px;
   width: 75px;
   height: 27px; }
 
@@ -5299,7 +5311,7 @@ div.selector span:before, .select-icon {
 
 .car-switcher__input_truck:checked + .icon, .car-switcher__input_truck:checked + [class^="icon-"], .truck-selected-icon {
   background-image: url(../img/sprite.png);
-  background-position: -227px -129px;
+  background-position: -286px -129px;
   width: 75px;
   height: 27px; }
 
@@ -5308,6 +5320,18 @@ div.selector span:before, .select-icon {
   background-position: 0px 0px;
   width: 143px;
   height: 124px; }
+
+.payment-icon {
+  background-image: url(../img/sprite.png);
+  background-position: -227px -129px;
+  width: 54px;
+  height: 45px; }
+
+.delivery-icon {
+  background-image: url(../img/sprite.png);
+  background-position: -267px -73px;
+  width: 62px;
+  height: 42px; }
 
 a:hover {
   text-decoration: none; }
@@ -5437,11 +5461,11 @@ header .row > .container, header .row > .slick-dots {
 .title_blue {
   padding: 0;
   margin-top: 0;
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  font-size: 0.9375em; }
 .title_blue .title__text {
   color: #fff;
   font-family: 'Roboto', sans-serif;
-  font-size: 0.9375em;
   font-weight: 700;
   line-height: 1;
   text-transform: uppercase;
@@ -5513,7 +5537,11 @@ p.info-account {
 .label {
   white-space: normal;
   display: inline-block;
-  padding: 6px 10px; }
+  padding: 0; }
+.label-success {
+  background: none;
+  border: none;
+  color: #3c3; }
 
 label {
   color: #333; }
@@ -5668,7 +5696,10 @@ input.button_disabled, input.exclusive_disabled, span.exclusive {
   outline: 0;
   position: absolute;
   top: 50%;
-  margin-top: -25px;
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
   display: inline-block;
   text-align: center;
   text-indent: -99999px;
@@ -5958,12 +5989,12 @@ table.std td, table.table_block td {
 .product-name {
   font-size: 17px;
   line-height: 23px;
-  color: #3a3939;
+  color: #212327;
   margin-bottom: 0; }
 .product-name a {
   font-size: 17px;
   line-height: 23px;
-  color: #3a3939; }
+  color: #212327; }
 .product-name a:hover {
   color: #515151; }
 @media (max-width: 768px) {
@@ -6787,6 +6818,24 @@ div.star_hover a, div.star a:hover {
   font-size: 1.125em; }
 #page .rte em {
   font-style: italic !important; }
+#page .rte_dark {
+  background-color: #333;
+  -webkit-box-shadow: 0 8px 15px rgba(129, 129, 129, 0.35);
+  box-shadow: 0 8px 15px rgba(129, 129, 129, 0.35);
+  color: #fff; }
+#page .rte_description {
+  background-position: 50% 50%;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-image: url(../img/description.jpg); }
+#page .rte__title {
+  color: #f47e1f;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 35px; }
 
 .listcomment {
   list-style-type: none;
@@ -6889,20 +6938,37 @@ div.star_hover a, div.star a:hover {
   font-size: 16px;
   font-weight: 400; }
 
-.btn_orange {
-  color: #fff;
+.btn {
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
   font-weight: 500;
   line-height: 1;
   text-transform: uppercase;
-  background-color: #f57f1f;
+  border: none;
   padding: 12px 25px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
+  -webkit-transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s; }
+.btn_orange {
+  color: #fff;
+  background-color: #f57f1f;
   -webkit-box-shadow: 0 8px 15px rgba(245, 129, 35, 0.35);
   box-shadow: 0 8px 15px rgba(245, 129, 35, 0.35); }
+.btn_orange:hover {
+  color: #fff;
+  -webkit-box-shadow: none;
+  box-shadow: none; }
+.btn_blue {
+  color: #fff;
+  background-color: #3357b4;
+  -webkit-box-shadow: 0 8px 15px rgba(51, 87, 180, 0.35);
+  box-shadow: 0 8px 15px rgba(51, 87, 180, 0.35); }
+.btn_blue:hover {
+  color: #fff;
+  -webkit-box-shadow: none;
+  box-shadow: none; }
 
 #reinsurance_block {
   clear: both !important; }

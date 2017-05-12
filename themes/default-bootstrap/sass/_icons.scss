@@ -63,6 +63,14 @@ div.selector span:before,
 .slider-prev-icon {
 	@include sprite($slider-prev-icon);
 }
+#thumbs_list .slick-next,
+.slider-next-small-icon {
+	@include sprite($slider-next-small-icon);
+}
+#thumbs_list .slick-prev,
+.slider-prev-small-icon {
+	@include sprite($slider-prev-small-icon);
+}
 .truck-icon {
 	@include sprite($truck-icon);
 }
@@ -75,6 +83,12 @@ div.selector span:before,
 }
 .up-icon {
 	@include sprite($up-icon);
+}
+.payment-icon {
+	@include sprite($payment-icon);
+}
+.delivery-icon {
+	@include sprite($delivery-icon);
 }
 
 //migrationfromfont-awesomev3tov4
