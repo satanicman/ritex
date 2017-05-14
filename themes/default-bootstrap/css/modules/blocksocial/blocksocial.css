@@ -4,6 +4,11 @@
   -webkit-align-items: center;
   align-items: center;
   margin: 0; }
+@media (max-width: 991px) {
+  .social-block__list {
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    margin-bottom: 10px; } }
 .social-block__item {
   padding-right: 57px; }
 .social-block__item:last-of-type {

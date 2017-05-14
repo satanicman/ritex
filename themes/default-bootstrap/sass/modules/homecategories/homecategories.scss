@@ -8,11 +8,13 @@
     }
     &__item {
         padding: 0;
-        height: 180px;
-        @include display-flex;
-        @include align-items(canter);
-        @include justify-content(space-around);
         text-align: center;
+        @media (min-width: $screen-sm) {
+            height: 180px;
+            @include display-flex;
+            @include align-items(canter);
+            @include justify-content(space-around);
+        }
     }
     &__item-container {
         @include display-flex;
@@ -28,10 +30,13 @@
     }
     &__img {
         @include transition(width .3s);
-        display: inline-block;
-        vertical-align: middle;
-        max-width: 100%;
-        max-height: 100%;
+        width: 100%;
+        @media (min-width: $screen-sm) {
+            display: inline-block;
+            vertical-align: middle;
+            max-width: 100%;
+            max-height: 100%;
+        }
     }
     &__child {
         display: none;

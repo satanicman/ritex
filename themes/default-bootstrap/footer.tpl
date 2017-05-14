@@ -25,14 +25,14 @@
 {if !isset($content_only) || !$content_only}
 					</div><!-- #center_column -->
 					{if isset($right_column_size) && !empty($right_column_size)}
-						<div id="right_column" class="col-xs-12 col-sm-{$right_column_size|intval} column">{$HOOK_RIGHT_COLUMN}</div>
+						<div id="right_column" class="col-xs-12 col-md-{$right_column_size|intval} column">{$HOOK_RIGHT_COLUMN}</div>
 					{/if}
 					</div><!-- .row -->
 				</div><!-- #columns -->
 			</div><!-- .columns-container -->
 			{if isset($HOOK_FOOTER)}
 				<!-- Footer -->
-				<footer class="footer">
+				<footer class="footer" id="footer">
 					<div class="footer__top">
                         <div class="container">
                             <div class="row">
@@ -52,11 +52,11 @@
                                 {if $smarty.capture.displayFooterBottom}
                                     {$smarty.capture.displayFooterBottom}
                                 {/if}
-                                <div class="footer-bottom__col col-sm-7 col-xs-12">
+                                <div class="footer-bottom__col col-md-7 col-xs-12">
                                     <p class="copyright">{l s='Все права защищены © 2017'}</p>
                                 </div>
-                                <div class="footer-bottom__col footer-bottom__col_btn col-sm-2 col-xs-12">
-                                    <a href="{$link->getPageLink('contact', true)|escape:'html':'UTF-8'}" title="{l s='Написать нам'}" class="pull-right btn btn_orange">{l s='Написать нам'}</a>
+                                <div class="footer-bottom__col footer-bottom__col_btn col-md-2 col-xs-12 clearfix">
+                                    <a href="{$link->getPageLink('contact', true)|escape:'html':'UTF-8'}" title="{l s='Написать нам'}" class="btn btn_orange footer-bottom__btn">{l s='Написать нам'}</a>
                                 </div>
                             </div>
                         </div>

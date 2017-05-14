@@ -26,29 +26,30 @@
 var responsiveflag = false;
 
 $(document).ready(function(){
+	mobileMenu();
 	$('.slick').slick({
         slidesToScroll: 1,
         slidesToShow: 4,
-        // responsive: [
-        //     {
-        //         breakpoint: 768,
-        //         settings: {
-        //             arrows: false,
-        //             centerMode: true,
-        //             centerPadding: '40px',
-        //             slidesToShow: 3
-        //         }
-        //     },
-        //     {
-        //         breakpoint: 480,
-        //         settings: {
-        //             arrows: false,
-        //             centerMode: true,
-        //             centerPadding: '40px',
-        //             slidesToShow: 1
-        //         }
-        //     }
-        // ]
+        responsive: [
+            {
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 3
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2
+                }
+            },
+            {
+                breakpoint: 503,
+                settings: {
+                    slidesToShow: 1
+                }
+            }
+        ]
     });
 	highdpiInit();
 	responsiveResize();
@@ -187,13 +188,13 @@ function scrollCompensate()
 function responsiveResize()
 {
 	compensante = scrollCompensate();
-	if (($(window).width()+scrollCompensate()) <= 767 && responsiveflag == false)
+	if (($(window).width()+scrollCompensate()) <= 991 && responsiveflag == false)
 	{
 		accordion('enable');
 		accordionFooter('enable');
 		responsiveflag = true;
 	}
-	else if (($(window).width()+scrollCompensate()) >= 768)
+	else if (($(window).width()+scrollCompensate()) >= 991)
 	{
 		accordion('disable');
 		accordionFooter('disable');
@@ -453,4 +454,19 @@ function bindUniform()
 {
 	if (!!$.prototype.uniform)
 		$("select.form-control,input[type='radio'],input[type='checkbox']").not(".not_uniform").uniform();
+}
+
+function mobileMenu() {
+    if ($(window).width() > 991)
+        return false;
+
+	$(document).on('click', '.header-mobile-button__link', function(e) {
+        e.preventDefault();
+		mobileMenuChangeStatus($(this));
+	});
+}
+
+function mobileMenuChangeStatus(that) {
+	that.toggleClass('header-mobile-button__link_active');
+	$('#page, .menu').toggleClass('active');
 }

@@ -1,8 +1,9 @@
 .tires-calc {
   color: #333;
-  margin-top: -50px;
-  position: relative;
-  z-index: 2; }
+  position: relative; }
+@media (max-width: 991px) {
+  .tires-calc {
+    display: none; } }
 .tires-calc__title {
   text-align: center;
   font-size: 1.125em;
@@ -16,7 +17,9 @@
   vertical-align: middle;
   background-color: #fff;
   padding: 16px 5px;
-  position: relative; }
+  position: absolute;
+  bottom: 100%;
+  z-index: 2; }
 .tires-calc__title-text:before, .tires-calc__title-text:after {
   display: inline-block;
   content: '';

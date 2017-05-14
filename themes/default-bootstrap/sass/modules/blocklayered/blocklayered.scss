@@ -214,7 +214,7 @@
 		display: inline-block;
 	}
 	&__heading {}
-	@media (min-width: $screen-sm) {
+	@media (min-width: $screen-md) {
 		.title_block {
 			display: none;
 		}

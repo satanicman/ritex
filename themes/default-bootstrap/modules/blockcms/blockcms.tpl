@@ -65,7 +65,7 @@
 	{/foreach}
 	<!-- /Block CMS module -->
 {elseif $block == 2}
-	<ul class="menu__list col-sm-11">
+	<ul class="menu__list col-md-11">
 		{foreach from=$cmslinks item=cmslink}
 			{if $cmslink.meta_title != ''}
 				<li class="menu__item">
@@ -78,8 +78,9 @@
 	</ul>
 {else}
 	<!-- Block CMS module footer -->
-	<section class="col-lg-offset-1 col-xs-12 col-sm-4 footer-menu footer__menu" id="block_various_links_footer">
-		<ul class="footer-menu__list clearfix">
+	<section class="footer-block col-lg-offset-1 col-xs-12 col-md-4 footer-menu footer__menu" id="block_various_links_footer">
+		<h4 class="footer-menu__title footer__title">{l s='Меню' mod='blockcms'}</h4>
+		<ul class="footer-menu__list clearfix toggle-footer">
             {if isset($show_price_drop) && $show_price_drop && !$PS_CATALOG_MODE}
 				<li class="footer-menu__item">
 					<a href="{$link->getPageLink('prices-drop')|escape:'html':'UTF-8'}" title="{l s='Specials' mod='blockcms'}" class="footer-menu__link">

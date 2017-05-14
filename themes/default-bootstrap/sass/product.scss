@@ -5,6 +5,10 @@
 /* primary_block ***************************************************************************** */
 .primary_block {
 	margin-top: 10px;
+    @media (max-width: $screen-sm-max) {
+		margin-left: 0;
+		margin-right: 0;
+    }
 }
 .top-hr{
 	background: $top-line-color;
@@ -33,10 +37,16 @@ a.fancybox-nav {
 }
 .pb-right-column {
 	padding-right: 0;
+	@media (max-width: $screen-sm-max) {
+		padding-left: 0;
+	}
 }
 /* .pb-left-column ***************************************************************************** */
 .pb-left-column {
 	padding-left: 0;
+	@media (max-width: $screen-sm-max) {
+		padding-right: 0;
+	}
 	#image-block {
 		position: relative;
 		display: block;
@@ -70,8 +80,6 @@ a.fancybox-nav {
 .pb-left-column #views_block {
 	margin-top: 10px;
 	@media (max-width: $screen-xs-max) { //max 767px
-		width: 280px;
-		margin: 10px auto 0px auto;
 	}
 }
 
@@ -80,7 +88,7 @@ a.fancybox-nav {
 	margin-top: 30px;
 	ul#thumbs_list_frame {
 		list-style-type: none;
-		margin: 0 -15px;
+        margin: 0 -15px;
 	}
 	li {
 		cursor: pointer;
@@ -99,10 +107,6 @@ a.fancybox-nav {
 		img {
 			width: 100%;
 			@include box-sizing(border-box);
-			@media (min-width: $screen-sm) and (max-width: $screen-sm-max) { //min 768px max 991px
-				width: 68px;
-				height: 68px;
-			}
 		}
 	}
 }
@@ -303,6 +307,10 @@ span.view_scroll_spacer {
 
 /* pb-left-column ****************************************************************************** */
 .pb-center-column {
+    @media (max-width: $screen-sm-max) {
+		padding: 15px 0;
+		font-size: 20px;
+	}
 	h1 {
 		font-family: Roboto, sans-serif;
 		font-size: em(22px);
@@ -469,6 +477,9 @@ span.view_scroll_spacer {
 		padding: 12px 47px;
 		@include border-radius(0);
 		font-size: em(18px);
+        @media (max-width: $screen-sm-max) {
+			white-space: normal;
+		}
 	}
 }
 
@@ -746,6 +757,10 @@ table.table-product-discounts{
 	&-information {
 		&__list {
 			margin: 0;
+			@media (min-width: $screen-sm) AND (max-width: $screen-sm-max) {
+				@include display-flex;
+				padding-top: 15px;
+			}
 		}
 		&__item {
 			background: $light-background;
@@ -756,6 +771,14 @@ table.table-product-discounts{
 			font-family: Roboto, sans-serif;
 			color: $description-color;
 			font-size: em(19px);
+			@media (min-width: $screen-sm) AND (max-width: $screen-sm-max) {
+				width: 49%;
+				float: left;
+				margin-right: 2%;
+				&:last-of-type {
+					margin-right: 0;
+				}
+			}
 		}
 		&__header {
 			font-weight: 700;
@@ -889,6 +912,13 @@ table.table-product-discounts{
 .buttons_bottom_block {
 	clear: both;
 	margin: 0;
+
+	@media (max-width: $screen-sm-max) {
+		.btn {
+			width: 100%;
+			height: 62px;
+		}
+	}
 }
 
 /* SEND TO FRIEND (pop-in) ##################################################################### */

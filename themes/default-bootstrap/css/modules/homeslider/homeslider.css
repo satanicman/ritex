@@ -12,6 +12,9 @@
   /*****************************************************************************
   						BXSlider Styles
   ********************************************************************************/ }
+@media (max-width: 991px) {
+  #homepage-slider {
+    display: none; } }
 #homepage-slider .slick-dots {
   position: absolute;
   left: 0;

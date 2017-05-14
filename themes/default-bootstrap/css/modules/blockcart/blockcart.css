@@ -8,11 +8,22 @@
 @media (max-width: 1200px) {
   .shopping_cart {
     margin: 0 -15px; } }
+@media (min-width: 992px) {
+  .shopping_cart__name {
+    display: none; } }
 .shopping_cart > a:first-child {
-  padding: 0;
-  text-align: center;
+  padding: 0 5px 0 0;
   display: block;
-  overflow: hidden; }
+  overflow: hidden;
+  color: #fff;
+  font-family: "Open Sans", serif;
+  font-size: 1.25em;
+  font-weight: 700;
+  line-height: 24px; }
+@media (min-width: 992px) {
+  .shopping_cart > a:first-child {
+    text-align: center;
+    padding: 0; } }
 .shopping_cart > a:first-child .icon {
   vertical-align: middle; }
 @media (min-width: 768px) and (max-width: 991px) {
@@ -22,26 +33,30 @@
   color: #fff;
   font: 600 18px/22px "Open Sans", sans-serif;
   padding-right: 5px; }
-.shopping_cart .ajax_cart_quantity {
-  width: 27px;
-  height: 27px;
-  -moz-border-radius: 50%;
-  -webkit-border-radius: 50%;
-  border-radius: 50%;
-  overflow: hidden;
-  background-color: #f57f1f;
-  border: 1px solid white;
-  position: absolute;
-  top: -10px;
-  right: 10px;
-  color: #fff;
-  font-family: "Open Sans", serif;
-  font-size: 1.25em;
-  font-weight: 700;
-  line-height: 24px; }
 @media (max-width: 1200px) {
   .shopping_cart .ajax_cart_quantity {
     right: 5px; } }
+@media (min-width: 992px) {
+  .shopping_cart .ajax_cart_quantity {
+    position: absolute;
+    width: 27px;
+    height: 27px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #f57f1f;
+    border: 1px solid white;
+    top: -10px;
+    right: 10px;
+    text-align: center; } }
+@media (max-width: 991px) {
+  .shopping_cart .ajax_cart_quantity:before, .shopping_cart .ajax_cart_quantity:after {
+    display: inline; }
+  .shopping_cart .ajax_cart_quantity:before {
+    content: '('; }
+  .shopping_cart .ajax_cart_quantity:after {
+    content: ')'; } }
 .shopping_cart .ajax_cart_total {
   display: none !important; }
 .shopping_cart .block_cart_expand:after, .shopping_cart .block_cart_collapse:after {

@@ -11,6 +11,9 @@
 	overflow: hidden;
 	position: relative;
 	z-index: 1;
+	@media (max-width: $screen-sm-max) {
+		display: none;
+	}
     .slick-dots {
 		position: absolute;
 		left: 0;

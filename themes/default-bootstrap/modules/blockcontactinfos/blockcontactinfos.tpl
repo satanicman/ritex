@@ -25,7 +25,7 @@
 *}
 
 <!-- MODULE Block contact infos -->
-<section id="block_contact_infos" class="col-xs-12 col-sm-3 contact-information footer__contact-information">
+<section id="block_contact_infos" class="col-xs-12 col-sm-6 col-md-3 contact-information footer__contact-information">
 	<ul class="contact-information__list">
 		{if $blockcontactinfos_address != ''}
 			<li class="contact-information__item">

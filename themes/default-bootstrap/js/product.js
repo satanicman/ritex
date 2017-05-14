@@ -132,7 +132,21 @@ $(document).ready(function()
 	if (!!$.prototype.slick)
 		$('#thumbs_list_frame').slick({
             slidesToScroll: 1,
-            slidesToShow: 3
+            slidesToShow: 3,
+            responsive: [
+                {
+                    breakpoint: 992,
+                    settings: {
+                        slidesToShow: 5
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 3
+                    }
+                }
+            ]
         });
     //
 	// $('#thumbs_list').trigger('goto', 0);

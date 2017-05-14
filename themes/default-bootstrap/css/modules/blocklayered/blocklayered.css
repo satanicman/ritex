@@ -209,7 +209,7 @@
   line-height: 1.05882em;
   margin-bottom: 15px;
   display: inline-block; }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .blocklayered .title_block {
     display: none; } }
 .blocklayered__price {

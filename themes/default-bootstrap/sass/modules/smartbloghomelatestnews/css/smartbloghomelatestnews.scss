@@ -4,8 +4,10 @@
 .smartbloghomelatestnews {
     &__link {
         display: block;
-        float: left;
-        width: 40%;
+        @media (min-width: $screen-sm) {
+            float: left;
+            width: 40%;
+        }
         @media (min-width: $screen-lg) {
             float: none;
             z-index: 2;
@@ -153,8 +155,10 @@
     }
     &__description {
         &_short {
-            float: left;
-            width: 60%;
+            @media (min-width: $screen-sm) {
+                float: left;
+                width: 60%;
+            }
             @media (min-width: $screen-lg) {
                 float: none;
                 position: absolute;

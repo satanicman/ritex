@@ -12,12 +12,12 @@ a:hover {
 	text-decoration: none;
 }
 
-//@media only screen and (min-width: 1200px) {
-//	.container {
-//		padding-left: 0;
-//		padding-right: 0;
-//	}
-//}
+@media (max-width: $screen-sm-max) {
+	.container {
+		width: auto;
+		max-width: none;
+	}
+}
 
 body {
 	min-width: 320px;
@@ -27,6 +27,10 @@ body {
 	color: $base-body-color;
 	font-family: 'Roboto', sans-serif;
 	background-color: $grey-background;
+	@media (max-width: $screen-sm-max) {
+		overflow-X: hidden;
+		overflow-Y: auto;
+	}
 	&.content_only {
 		background: none;
 		min-width: 0px;
@@ -50,10 +54,18 @@ textarea {
 #columns {
 	position: relative;
 	padding-bottom: 100px;
+	@media (max-width: $screen-sm-max) {
+		padding-left: 30px;
+		padding-right: 30px;
+
+	}
 }
 
 #left_column {
 	padding-top: 50px;
+	@media (max-width: $screen-sm-max) {
+		padding: 10px 0 15px;
+	}
 }
 
 #index {
@@ -66,8 +78,10 @@ textarea {
 header {
 	z-index: 1;
 	position: relative;
-	padding-top: 10px;
-	padding-bottom: 15px;
+    @media (min-width: $screen-md) {
+        padding-top: 10px;
+        padding-bottom: 15px;
+	}
 	.banner {
 		background: black;
 		max-height: 100%;
@@ -90,6 +104,16 @@ header {
 			position: relative;
 		}
 		#header_logo {
+			@media (max-width: $screen-sm-max) {
+				padding-top: 5px;
+				padding-bottom: 5px;
+				height: 62px;
+                img {
+					width: auto;
+					height: 100%;
+					margin: 0 auto;
+				}
+			}
 		}
 	}
 	@media (min-width: $screen-xs-max){
@@ -100,16 +124,89 @@ header {
 }
 
 .header {
+    &__mobile-button {
+		@media (min-width: $screen-md) {
+			display: none;
+		}
+	}
+	$snappy : cubic-bezier(0.694,  0.048, 0.335, 1.000);
+	&-mobile-button {
+		float: left;
+		padding: 0 20px;
+		background: $orange-background;
+        &__link {
+			background: none;
+			display: block;
+			width: 50px;
+			height: 62px;
+			padding: 0;
+			border: none;
+			outline: 0;
+            @include transition(transform .5s $snappy);
+			&_active {
+				transform: rotate(45deg);
+                transition-delay: 0;
+                .header-mobile-button__line {
+                    &:first-child {
+                        transform: scaleX(0);
+                        transition: transform 0.5s $snappy;
+                    }
+                    &:nth-child(3) {
+                        width: 0;
+                        transition: width 0.5s $snappy;
+                    }
+					&_other {
+						height: 50px;
+						transition: height 0.5s $snappy;
+					}
+                }
+			}
+		}
+		&__line {
+            display: block;
+            width: 50px;
+            height: 2px;
+            background-color: $light-background;
+            margin-top: 8px;
+            &:first-child {
+                margin-top: 0;
+                transform: scaleX(1);
+                transition: transform 0.5s $snappy;
+                transition-delay: 0.5s;
+            }
+            &:nth-child(3) {
+                width: 100%;
+                transition: width 0.5s $snappy;
+                transition-delay: 0.5s;
+            }
+
+			&_other {
+				width: 2px;
+				height: 0;
+				background-color: $light-background;
+				position: absolute;
+				top: -3px;
+				left: 50%;
+				margin-left: -1px;
+				transition: height 0.5s $snappy;
+				z-index: 10;
+			}
+		}
+	}
     &__row {
 		@include display-flex;
 		@include align-items(center);
 		&:before, &:after {
 			display: none;
 		}
+		@media (max-width: $screen-sm-max) {
+			@include justify-content(space-between);
+		}
 	}
 	&__col {
 		&_search {
 			padding-right: 0;
+			position: static;
 		}
 	}
 }
@@ -122,6 +219,9 @@ header {
 	margin: 0;
 	padding-right: 0;
 	padding-left: 10px;
+	@media (max-width: $screen-sm-max) {
+		display: none;
+	}
 }
 
 .slick-dots {
@@ -129,6 +229,9 @@ header {
 }
 
 .car-switcher {
+	@media (max-width: $screen-sm-max) {
+		display: none;
+	}
 	&__list {
 		display: table;
 		margin: 0;
@@ -148,27 +251,55 @@ header {
 	&__icon {}
 }
 
+@media (max-width: $screen-sm-max) {
+	#page {
+		@include transition(all 500ms ease-in-out);
+		&.active {
+			@include transform(translate3d(205px,0,0));
+		}
+	}
+}
 .menu {
 	background-color: $orange-background;
 	//box-shadow: 0 12px 20px rgba(0, 0, 0, 0.35);
 	z-index: 5004;
 	position: relative;
+	@media (max-width: $screen-sm-max) {
+		position: fixed;
+		left: -205px;
+		top: 0;
+		width: 205px;
+		height: 100%;
+		padding: 15px 0;
+	}
 	&__container {
 		position: relative;
 	}
 	&__list {
 		padding: 0;
 		margin: 0;
-		height: 58px;
         @media (min-width: $screen-md) {
+			height: 58px;
             @include display-flex;
             @include align-items(center);
 		}
 	}
 	&__item {
-        @include flex-grow(1);
-		text-align: center;
-		padding: 5px;
+		@media (min-width: $screen-md) {
+			padding: 5px;
+			text-align: center;
+			@include flex-grow(1);
+		}
+        @media (max-width: $screen-sm-max) {
+			padding: 0 10px 10px;
+			margin-bottom: 10px;
+			border-bottom: 1px solid $light-border-color;
+			//&:last-of-type {
+			//	margin-bottom: 0;
+			//	padding-bottom: 0;
+			//	border-bottom: 0;
+			//}
+		}
 	}
 	&__link {
 		color: $light-text-color;
@@ -176,15 +307,24 @@ header {
 		font-family: 'Roboto', sans-serif;
 		font-size: em(17px);
 		font-weight: 700;
+		@media (max-width: $screen-sm-max) {
+			font-size: em(20px);
+		}
+		&:active,
+		&:focus,
 		&:hover {
-			text-decoration: underline;
 			color: $light-text-color;
+			@media (min-width: $screen-md) {
+				text-decoration: underline;
+			}
 		}
 	}
 	&__cart {
-		border-style: solid;
-		border-color: $light-border-color;
-		border-width: 0 1px;
+        @media (min-width: $screen-md) {
+            border-style: solid;
+            border-color: $light-border-color;
+            border-width: 0 1px;
+		}
 	}
 }
 
@@ -215,6 +355,10 @@ header {
 
 //title
 #center_column {
+    @media (max-width: $screen-sm-max) {
+		padding-left: 0;
+		padding-right: 0;
+	}
 	.page_product_box {
 		h3 {
 			@include sub-heading;
@@ -1195,7 +1339,8 @@ table.table_block td {
 	}
 	.block_content {
 		// max 767px
-		@media (max-width: $screen-xs-max) {
+		@media (max-width: $screen-sm-max) {
+			padding-top: 20px;
 			margin-bottom: 20px;
 		}
 	}
@@ -1204,18 +1349,13 @@ table.table_block td {
 .block {
 	.title_block,
 	h4 {
-		font: 600 18px / 22px $font-custom;
+		font-family: Roboto, sans-serif;
+		font-weight: 700;
+		font-size: em(18px);
 		color: $base-heading-color;
-		background: #f6f6f6;
-		border-top: 5px solid $dark-border-color;
 		text-transform: uppercase;
-		padding: 14px 5px 17px 20px;
-		margin-bottom: 20px;
-		@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
-			font-size: 14px;
-		}
-		// max 767px
-		@media (max-width: $screen-xs-max) {
+		margin: 0;
+		@media (max-width: $screen-sm-max) {
 			position: relative;
 			&:after {
 				display: block;
@@ -1223,10 +1363,9 @@ table.table_block td {
 				content: "";
 				position: absolute;
 				right: 0;
-				top: 15px;
-				height: 36px;
-				width: 36px;
-				font-size: 26px;
+				top: 50%;
+				@include transform(translate(0, -50%));
+				font-size: 22px;
 				font-weight: normal;
 			}
 			&.active:after {
@@ -1391,8 +1530,10 @@ ul.footer_links {
 		clear: both;
 		margin-bottom: 25px;
 		#productsSortForm {
-			float: right;
-			margin-right: 70px;
+            @media (min-width: 505px) {
+                float: right;
+                margin-right: 70px;
+			}
 			select {
 				max-width: 192px;
 				float: left;
@@ -1405,7 +1546,9 @@ ul.footer_links {
 			}
 		}
 		.nbrItemPage {
-			float: right;
+			@media (min-width: 505px) {
+				float: right;
+			}
 			select {
 				max-width: 59px;
 				float: left;
@@ -1911,6 +2054,10 @@ div.star a:hover {
 		background-position: 50% 50%;
 		@include background-size(cover);
 		background-image: url(../img/description.jpg);
+		@media (max-width: $screen-sm-max) {
+			padding-left: 15px !important;
+			padding-right: 15px !important;
+		}
 	}
     &__title {
 		color: #f47e1f;
@@ -1946,7 +2093,9 @@ div.star a:hover {
 }
 
 .header-container {
-	padding-top: 9px;
+	@media (min-width: $screen-md) {
+		padding-top: 9px;
+	}
 }
 
 // BREADCRUMB
@@ -2031,27 +2180,72 @@ div.star a:hover {
     & {
 		color: #1e243f;
 	}
+	&__logo {
+		@media (max-width: $screen-sm-max) {
+			display: none;
+		}
+	}
 	// menu
 	&__menu {
-		margin-top: -12px;
-		padding-left: 0;
+        @media (min-width: $screen-md) {
+            margin-top: -12px;
+            padding-left: 0;
+		}
 	}
     &__contacts {
-		margin-top: -7px;
-		padding-left: 0;
+        @media (min-width: $screen-md) {
+            margin-top: -7px;
+            padding-left: 0;
+		}
     }
     &__contact-information {
-		padding-left: 40px;
-		margin-top: -7px;
+		@media (min-width: $screen-md) {
+			padding-left: 40px;
+			margin-top: -7px;
+		}
+	}
+	&__title {
+		font-family: Roboto, sans-serif;
+		font-size: em(20px);
+		padding: 0;
+		margin: 0 0 10px;
+		font-weight: 700;
+		position: relative;
+		&:after {
+			position: absolute;
+			right: 0;
+			top: 50%;
+			@include transform(translate(0, -50%));
+			display: inline-block;
+			font-family: $font-icon;
+			font-size: 20px;
+			line-height: 1;
+			content: "\f067";
+		}
+		&.active {
+			&:after {
+				content: "\f068";
+			}
+		}
 	}
 	&-menu {
+        &__title {
+
+			@media (min-width: $screen-md) {
+				display: none;
+			}
+		}
 		&__list {
 			margin: 0;
 		}
 		&__item {
-			width: 50%;
-			float: left;
-			padding: 0 5px;
+			@media (min-width: $screen-xs) {
+                width: 50%;
+                float: left;
+			}
+			@media (min-width: $screen-md) {
+				padding: 0 5px;
+			}
 		}
 		&__link {
 			color: #1e243f;
@@ -2073,12 +2267,25 @@ div.star a:hover {
 	}
     &-bottom {
 		&__row {
-            @include display-flex;
-			@include align-items(center);
+            @media (min-width: $screen-md) {
+				@include display-flex;
+				@include align-items(center);
+			}
 		}
 		&__col {
             &_btn {
-				padding-right: 0;
+				@media (max-width: $screen-sm-max) {
+					text-align: center;
+					padding-top: 15px;
+				}
+                @media (min-width: $screen-md) {
+					padding-right: 0;
+				}
+			}
+		}
+        &__btn {
+			@media (min-width: $screen-md) {
+				float: right;
 			}
 		}
 	}

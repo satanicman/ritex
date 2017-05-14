@@ -26,6 +26,7 @@
 var instantSearchQueries = [];
 $(document).ready(function()
 {
+	mobileSearch();
 	if (typeof blocksearch_type == 'undefined')
 		return;
 
@@ -121,4 +122,19 @@ function stopInstantSearchQueries()
 	for(var i=0; i<instantSearchQueries.length; i++)
 		instantSearchQueries[i].abort();
 	instantSearchQueries = [];
+}
+
+function mobileSearch() {
+    if ($(window).width() > 991)
+        return false;
+
+    $(document).on('click', '.search_block_top-mobile-btn', function(e) {
+    	e.preventDefault();
+    	mobileSearchStatus($(this));
+	});
+}
+
+function mobileSearchStatus(that) {
+	that.parent().find('#searchbox').slideToggle(500);
+
 }

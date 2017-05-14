@@ -6,6 +6,10 @@
         @include display-flex;
         @include align-items(center);
         margin: 0;
+        @media (max-width: $screen-sm-max) {
+            @include justify-content(space-between);
+            margin-bottom: 10px;
+        }
     }
     &__item {
         padding-right: 57px;

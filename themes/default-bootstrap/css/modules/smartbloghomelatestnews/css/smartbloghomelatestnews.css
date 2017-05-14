@@ -1,7 +1,9 @@
 .smartbloghomelatestnews__link {
-  display: block;
-  float: left;
-  width: 40%; }
+  display: block; }
+@media (min-width: 768px) {
+  .smartbloghomelatestnews__link {
+    float: left;
+    width: 40%; } }
 @media (min-width: 1200px) {
   .smartbloghomelatestnews__link {
     float: none;
@@ -113,9 +115,10 @@
   top: 0; }
 .smartbloghomelatestnews__item_num_5:hover .smartbloghomelatestnews-description_full {
   left: 0; }
-.smartbloghomelatestnews__description_short {
-  float: left;
-  width: 60%; }
+@media (min-width: 768px) {
+  .smartbloghomelatestnews__description_short {
+    float: left;
+    width: 60%; } }
 @media (min-width: 1200px) {
   .smartbloghomelatestnews__description_short {
     float: none;

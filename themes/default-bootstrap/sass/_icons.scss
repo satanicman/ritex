@@ -66,10 +66,16 @@ div.selector span:before,
 #thumbs_list .slick-next,
 .slider-next-small-icon {
 	@include sprite($slider-next-small-icon);
+	@media (max-width: $screen-sm-max) {
+		@include sprite($slider-next-icon);
+	}
 }
 #thumbs_list .slick-prev,
 .slider-prev-small-icon {
 	@include sprite($slider-prev-small-icon);
+	@media (max-width: $screen-sm-max) {
+		@include sprite($slider-prev-icon);
+	}
 }
 .truck-icon {
 	@include sprite($truck-icon);

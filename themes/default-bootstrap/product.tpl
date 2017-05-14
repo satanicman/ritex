@@ -57,7 +57,7 @@
 			</p>
 		{/if}
 		<!-- left infos-->
-		<div class="pb-left-column col-xs-12 col-sm-4 col-md-4">
+		<div class="pb-left-column col-xs-12 col-md-4">
 			<!-- product img-->
 			<div id="image-block" class="clearfix">
 				{if $have_image}
@@ -114,7 +114,7 @@
 		</div> <!-- end pb-left-column -->
 		<!-- end left infos-->
 		<!-- center infos -->
-		<div class="pb-center-column col-xs-12 col-sm-5">
+		<div class="pb-center-column col-xs-12 col-md-5">
 			{*{if $product->online_only}*}
 				{*<p class="online_only">{l s='Online only'}</p>*}
 			{*{/if}*}
@@ -355,7 +355,7 @@
 		</div>
 		<!-- end center infos-->
 		<!-- pb-right-column-->
-		<div class="pb-right-column col-xs-12 col-sm-4 col-md-3">
+		<div class="pb-right-column col-xs-12 col-md-3">
             {if isset($HOOK_EXTRA_RIGHT) && $HOOK_EXTRA_RIGHT}{$HOOK_EXTRA_RIGHT}{/if}
 		</div> <!-- end pb-right-column-->
 	</div> <!-- end primary_block -->
