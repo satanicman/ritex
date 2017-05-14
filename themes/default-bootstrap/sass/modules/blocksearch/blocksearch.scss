@@ -8,7 +8,7 @@
 			top: 100%;
 			left: 0;
 			width: 100%;
-			margin-top: 20px;
+			margin-top: 10px;
 		}
 	}
 	.search_block_top-mobile-btn,
@@ -27,8 +27,8 @@
 		float: right;
         @media (max-width: $screen-sm-max) {
 			padding: 0;
-			width: 90px;
-			height: 62px;
+			width: 70px;
+			height: 44px;
 		}
 		@media (min-width: $screen-md) {
 			@include border-radius(0 20px 20px 0);

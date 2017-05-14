@@ -5419,7 +5419,7 @@ header .row > .container, header .row > .slick-dots {
   header .row #header_logo {
     padding-top: 5px;
     padding-bottom: 5px;
-    height: 62px; }
+    height: 44px; }
   header .row #header_logo img {
     width: auto;
     height: 100%;
@@ -5433,13 +5433,13 @@ header .row > .container, header .row > .slick-dots {
     display: none; } }
 .header-mobile-button {
   float: left;
-  padding: 0 20px;
+  padding: 7px 15px;
   background: #f57f1f; }
 .header-mobile-button__link {
   background: none;
   display: block;
-  width: 50px;
-  height: 62px;
+  width: 40px;
+  height: 30px;
   padding: 0;
   border: none;
   outline: 0;
@@ -5455,11 +5455,11 @@ header .row > .container, header .row > .slick-dots {
   width: 0;
   transition: width 0.5s cubic-bezier(0.694, 0.048, 0.335, 1); }
 .header-mobile-button__link_active .header-mobile-button__line_other {
-  height: 50px;
+  height: 40px;
   transition: height 0.5s cubic-bezier(0.694, 0.048, 0.335, 1); }
 .header-mobile-button__line {
   display: block;
-  width: 50px;
+  width: 40px;
   height: 2px;
   background-color: #fff;
   margin-top: 8px; }
@@ -5477,7 +5477,7 @@ header .row > .container, header .row > .slick-dots {
   height: 0;
   background-color: #fff;
   position: absolute;
-  top: -3px;
+  top: -13px;
   left: 50%;
   margin-left: -1px;
   transition: height 0.5s cubic-bezier(0.694, 0.048, 0.335, 1);

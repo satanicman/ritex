@@ -5,7 +5,7 @@
     top: 100%;
     left: 0;
     width: 100%;
-    margin-top: 20px; } }
+    margin-top: 10px; } }
 #search_block_top .search_block_top-mobile-btn, #search_block_top .btn.button-search {
   background: #f57f1f;
   display: block;
@@ -24,8 +24,8 @@
 @media (max-width: 991px) {
   #search_block_top .search_block_top-mobile-btn, #search_block_top .btn.button-search {
     padding: 0;
-    width: 90px;
-    height: 62px; } }
+    width: 70px;
+    height: 44px; } }
 @media (min-width: 992px) {
   #search_block_top .search_block_top-mobile-btn, #search_block_top .btn.button-search {
     -moz-border-radius: 0 20px 20px 0;
