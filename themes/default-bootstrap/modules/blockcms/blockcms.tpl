@@ -78,7 +78,7 @@
 	</ul>
 {else}
 	<!-- Block CMS module footer -->
-	<section class="col-sm-offset-1 col-xs-12 col-sm-4 footer-menu footer__menu" id="block_various_links_footer">
+	<section class="col-lg-offset-1 col-xs-12 col-sm-4 footer-menu footer__menu" id="block_various_links_footer">
 		<ul class="footer-menu__list clearfix">
             {if isset($show_price_drop) && $show_price_drop && !$PS_CATALOG_MODE}
 				<li class="footer-menu__item">

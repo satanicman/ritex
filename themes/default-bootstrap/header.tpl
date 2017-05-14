@@ -109,8 +109,8 @@
 							</div>
 							<p class="header__slogan col-sm-3 header__col">{l s='Официальный импортер шин группы Continental (Semperit, Barum, Matador) в Украине'}</p>
 							{if isset($HOOK_TOP)}{$HOOK_TOP}{/if}
-                            <div class="col-sm-offset-1 col-sm-2 car-switcher header__col">
-								<ul class="car-switcher__list">
+                            <div class="col-lg-offset-1 col-sm-3 col-lg-2 car-switcher header__col clearfix">
+								<ul class="car-switcher__list pull-right">
 									<li class="car-switcher__item">
 										<input type="radio" name="carType" id="carType_car" value="car" class="not_uniform car-switcher__input car-switcher__input_car" checked="checked">
 										<label class="icon car-icon car-switcher__icon" for="carType_car"></label>

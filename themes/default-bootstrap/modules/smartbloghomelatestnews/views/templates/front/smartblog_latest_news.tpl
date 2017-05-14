@@ -7,11 +7,15 @@
             {$options.id_post = $post.id}
             {$options.slug = $post.link_rewrite}
             {assign var='i' value=$i+1}
-            <li class="smartbloghomelatestnews__item smartbloghomelatestnews__item_num_{$i}" style="background-image: url({$modules_dir}smartblog/images/{$post.post_img}.jpg);">
+            <li class="smartbloghomelatestnews__item smartbloghomelatestnews__item_num_{$i} clearfix" style="background-image: url({$modules_dir}smartblog/images/{$post.post_img}.jpg);">
                 <a href="{smartblog::GetSmartBlogLink('smartblog_post',$options)}" title="{$post.title}" class="smartbloghomelatestnews__link">
+                    <img src="{$modules_dir}smartblog/images/{$post.post_img}.jpg" alt="{$post.title}" class="smartbloghomelatestnews__image img-responsive">
                 </a>
                 <div class="smartbloghomelatestnews__description_short smartbloghomelatestnews-description smartbloghomelatestnews-description_short">
                     <h4 class="smartbloghomelatestnews-description__title">{$post.title}</h4>
+                    <p class="smartbloghomelatestnews-description__text">
+                        {$post.short_description|escape:'htmlall':'UTF-8'}
+                    </p>
                     <a href="{smartblog::GetSmartBlogLink('smartblog_post',$options)}" class="smartbloghomelatestnews-description__link">{l s='Read More' mod='smartbloghomelatestnews'}</a>
                 </div>
                 <div class="smartbloghomelatestnews__description_full smartbloghomelatestnews-description smartbloghomelatestnews-description_full">

@@ -6910,7 +6910,8 @@ div.star_hover a, div.star a:hover {
   margin: 0; }
 .footer-menu__item {
   width: 50%;
-  float: left; }
+  float: left;
+  padding: 0 5px; }
 .footer-menu__link {
   color: #1e243f;
   font-family: 'Roboto', sans-serif;

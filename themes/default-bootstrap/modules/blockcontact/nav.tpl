@@ -24,8 +24,8 @@
 *}
 
 {if $telnumber}
-    <div class="col-sm-2 col-xs-12 contacts footer__contacts">
-        <p class="contacts__phone">
+    <div class="col-xs-12 col-sm-3 col-lg-2 contacts footer__contacts clearfix">
+        <p class="contacts__phone pull-right">
             {$telnumber|replace:'|':'<br/>'}
         </p>
     </div>

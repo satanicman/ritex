@@ -13,6 +13,10 @@
   justify-content: space-around;
   text-align: center; }
 .homecategories__item-container {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
   background-color: #fff;
   border: 1px solid #f57f1f;
   -moz-transition: border-width 0.3s;
