@@ -44,6 +44,9 @@
   padding: 0; }
 #homepage-slider .homeslider-container {
   position: relative; }
+#homepage-slider .homeslider-container img {
+  display: block;
+  margin: 0 auto; }
 #homepage-slider .homeslider-image {
   position: absolute;
   left: 0;

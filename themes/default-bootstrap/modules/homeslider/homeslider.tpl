@@ -33,7 +33,7 @@
 					{if $slide.active}
 						<li class="homeslider-container">
 							<a href="{$slide.url|escape:'html':'UTF-8'}" title="{$slide.legend|escape:'html':'UTF-8'}">
-								<img src="{$link->getMediaLink("`$smarty.const._MODULE_DIR_`homeslider/images/`$slide.image|escape:'htmlall':'UTF-8'`")}" alt="{$slide.legend|escape:'htmlall':'UTF-8'}" class="homeslider__image" />
+								<img src="{$link->getMediaLink("`$smarty.const._MODULE_DIR_`homeslider/images/`$slide.image|escape:'htmlall':'UTF-8'`")}" alt="{$slide.legend|escape:'htmlall':'UTF-8'}" class="homeslider__image img-responsive" />
 							</a>
 							{if isset($slide.description) && trim($slide.description) != ''}
 								<div class="homeslider-description container">{$slide.description}</div>
