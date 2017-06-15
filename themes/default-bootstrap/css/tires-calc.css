@@ -14,10 +14,14 @@
   padding: 0; }
 .tires-calc__title-text {
   display: inline-block;
+  width: 250px;
+  text-align: center;
   vertical-align: middle;
   background-color: #fff;
   padding: 16px 5px;
   position: absolute;
+  margin-left: -125px;
+  left: 50%;
   bottom: 100%;
   z-index: 2; }
 .tires-calc__title-text:before, .tires-calc__title-text:after {
