@@ -117,37 +117,4 @@ class Product extends ProductCore
 
         return (int)Db::getInstance()->getValue("SELECT id_product FROM `"._DB_PREFIX_."product` WHERE `reference` LIKE '".(string)$reference."'");
     }
-
-
-    /**
-     * Удалить характеристику по идентификатору
-     * @param string $id_feature
-     * @return bool
-     */
-    public function deleteFeature($id_feature) {
-        // List products features
-        $features = Db::getInstance()->executeS('
-		SELECT p.*, f.*
-		FROM `'._DB_PREFIX_.'feature_product` as p
-		LEFT JOIN `'._DB_PREFIX_.'feature_value` as f ON (f.`id_feature_value` = p.`id_feature_value`)
-		WHERE `id_product` = '.(int)$this->id.' AND p.`id_feature` = '.$id_feature);
-        foreach ($features as $tab) {
-            // Delete product custom features
-            if ($tab['custom']) {
-                Db::getInstance()->execute('
-				DELETE FROM `'._DB_PREFIX_.'feature_value`
-				WHERE `id_feature_value` = '.(int)$tab['id_feature_value']);
-                Db::getInstance()->execute('
-				DELETE FROM `'._DB_PREFIX_.'feature_value_lang`
-				WHERE `id_feature_value` = '.(int)$tab['id_feature_value']);
-            }
-        }
-        // Delete product features
-        $result = Db::getInstance()->execute('
-		DELETE FROM `'._DB_PREFIX_.'feature_product`
-		WHERE `id_product` = '.(int)$this->id.' AND p.`id_feature` = '.$id_feature);
-
-        SpecificPriceRule::applyAllRules(array((int)$this->id));
-        return ($result);
-    }
 }
