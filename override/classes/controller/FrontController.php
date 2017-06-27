@@ -395,6 +395,6 @@ class FrontController extends FrontControllerCore
         parent::setMedia();
         $this->addJS(_PS_ROOT_DIR_.'buyme/js/buyme.js', 'all');
         $this->addCSS(_THEME_CSS_DIR_.'fonts.css', 'all');
-        $this->addCSS(_THEME_CSS_DIR_.'tires-calc.css', 'all');
+//        $this->addCSS(_THEME_CSS_DIR_.'tires-calc.css', 'all');
     }
 }

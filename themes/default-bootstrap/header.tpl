@@ -152,9 +152,13 @@
 						<div id="top_column" class="center_column col-xs-12 col-sm-12"><div class="row">{$smarty.capture.displayTopColumn}</div></div>
 					{/if}
 				</div>
-                {if $page_name =='index'}
-                    {include file="$tpl_dir./tires-calc.tpl"}
-                {/if}
+                {*{if $page_name =='index'}*}
+                    {capture name='tireCalc'}{hook h='tireCalc'}{/capture}
+                    {if $smarty.capture.tireCalc}
+						{$smarty.capture.tireCalc}
+                    {/if}
+                    {*{include file="$tpl_dir./tires-calc.tpl"}*}
+                {*{/if}*}
 				{if $page_name !='index' && $page_name !='pagenotfound'}
 					{include file="$tpl_dir./breadcrumb.tpl"}
 				{/if}

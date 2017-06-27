@@ -297,15 +297,20 @@ class Homepagefilter extends Module
 
     public function hookHeader($params)
     {
-        $this->context->controller->addCSS($this->_path.'modelfilter.css', 'all');
-        $this->context->controller->addJS($this->_path.'modelfilter.js');
+        $this->context->controller->addCSS($this->_path.'homepagefilter.css', 'all');
+        $this->context->controller->addJS($this->_path.'homepagefilter.js');
     }
+
+    public function hookTireCalc($params)
+    {
+        return $this->hookdisplayHomeTabContent($params);
+    }
+
     public function hookdisplayHomeTabContent($params)
     {
         $features = array();
 
         $category = new Category(Configuration::get('HOMEPAGEFILTER_CATEGORY'), $this->context->language->id);
-        $categories[] = $category->recurseLiteCategTree();
 
         foreach(explode('|', Configuration::get('HOMEPAGEFILTER_FEATURES')) as $id) {
             $feature = new Feature($id, $this->context->language->id);
@@ -318,13 +323,8 @@ class Homepagefilter extends Module
             $features[$id]['values'] = $values;
         }
 
-        if (file_exists(_PS_THEME_DIR_.'modules/homepagefilter/homepagefilter.tpl'))
-            $this->smarty->assign('branche_tpl_path', _PS_THEME_DIR_.'modules/homepagefilter/homepagefilter-category-branch.tpl');
-        else
-            $this->smarty->assign('branche_tpl_path', _PS_MODULE_DIR_.'homepagefilter/homepagefilter-category-branch.tpl');
-
         $result = array(
-            'categories' => $categories,
+            'category_url' => $this->context->link->getCategoryLink($category),
             'features' => $features
         );
 
