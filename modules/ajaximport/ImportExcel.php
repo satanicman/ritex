@@ -66,7 +66,7 @@ class ImportExcel extends AjaxImportModel
                             $f->add();
                         }
 
-                        $id_feature_value = $this->getFeatureValueByName($value, $f->id_feature);
+                        $id_feature_value = $this->getFeatureValueByName($value, $f->id);
                         $fv = new FeatureValue($id_feature_value, $this->context->language->id);
                         if(!$id_feature_value) {
                             $fv->value = $value;
