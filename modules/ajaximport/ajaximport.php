@@ -13,16 +13,8 @@ class ajaximport extends Module
 {
     protected $excel;
     protected $messages = '';
-    protected $reader = array();
-    protected $count = 0;
     protected $total = 0;
-    protected $step_total = array();
-    protected $step = 0;
-    protected $from = 0;
     protected $lines = array();
-    protected $override = array(
-        'Product',
-    );
 
     public function __construct()
     {
@@ -47,21 +39,8 @@ class ajaximport extends Module
 
     public function install()
     {
-        foreach ($this->override as $fileName) {
-            if (file_exists(_PS_ROOT_DIR_ . "/override/classes/".$fileName.".php")) {
-                $this->_errors[] = Tools::displayError(sprintf($this->l('Please delete your files %s.php from override folder.'), $fileName));
-            }
-        }
-
-        if(count($this->_errors)) {
-            $this->_errors[] = Tools::displayError($this->l('Please delete class_index.php in cache folder.'));
-            return false;
-        }
-
         if (!parent::install() ||
-            !Configuration::updateValue('AJAXIMPORT_CATEGORY', Configuration::get('PS_HOME_CATEGORY')) ||
-            !Configuration::updateValue('AJAXIMPORT_NBR_PRODUCTS', 1) ||
-            !AjaxImportModel::addFields())
+            !Configuration::updateValue('AJAXIMPORT_NBR_PRODUCTS', 30))
             return false;
 
         return true;
@@ -69,8 +48,7 @@ class ajaximport extends Module
 
     public function uninstall()
     {
-        if (!parent::uninstall() ||
-            !AjaxImportModel::rmFields())
+        if (!parent::uninstall())
             return false;
 
         return true;
@@ -156,105 +134,45 @@ class ajaximport extends Module
     private function _saveContent()
     {
         $message = $this->displayConfirmation($this->l("Success"));
-
         return $message;
     }
 
     public function ajaxCall() {
-        $total = 0;
-        $this->from = Tools::getValue('step_count', 0);
-        $this->step = Tools::getValue('step', 0);
-        $values = Tools::getValue('values', 0);
+        $this->lines = Tools::getValue('values', array());
         $this->excel = new ImportExcel();
+        $import = false;
+        if($this->lines && gettype($this->lines) == 'string') {
+            $this->lines = json_decode($this->lines);
+            $import = true;
+        }
 
         set_time_limit(10000000000);
         error_reporting(1);
 
-        if(isset($_FILES['omega']) && !$_FILES['omega']['error'] && !$values) {
-//            $this->importOmega($_FILES['omega']);
-            $this->parseFiles($_FILES['omega'], 'omega');
-        }
-        if(isset($_FILES['continental']) && !$_FILES['continental']['error'] && !$values) {
-//            $this->importContinental($_FILES['continental']);
-            $this->parseFiles($_FILES['continental'], 'continental');
+        if(!$this->lines) {
+            if (isset($_FILES['omega']) && !$_FILES['omega']['error']) {
+                $this->parseFiles($_FILES['omega'], 'omega');
+            }
+            if (isset($_FILES['continental']) && !$_FILES['continental']['error']) {
+                $this->parseFiles($_FILES['continental'], 'continental');
+            }
         }
 
-//        $this->excel->parseExcel($this->reader[$this->step], $this->from);
+        $this->total = count($this->lines);
+
+        if($import)
+            $this->messages = $this->excel->parseExcel(array('values' => &$this->lines));
 
         $result = array(
-            'message' => $this->messages,
-            'from' => $this->from
+            'message' => implode('',$this->messages),
+            'values' => $this->lines,
+            'count' => $this->excel->counter,
+            'total' => $this->total
         );
 
 
 
         die(Tools::jsonEncode($result));
-    }
-
-    private function importOmega($file) {
-        $step = 1;
-        $this->reader[$step] = $this->createObjectReader($file);
-
-        if($this->step == 0) {
-            $this->total += $this->step_total[$step] = $this->getTotal($this->reader[$step]);
-
-            if($this->step_total[$step] > $this->from)
-                $this->step = $step;
-            else
-                $this->step = $step + 1;
-        }
-    }
-
-    private function importContinental($file) {
-        $step = 2;
-        $this->reader[$step] = $this->createObjectReader($file);
-
-        if($this->step == 0) {
-            $this->total += $this->step_total[$step] = $this->getTotal($this->reader[$step]);
-
-            if($this->step_total[$step] > $this->from)
-                $this->step = $step;
-            else
-                $this->step = $step + 1;
-        }
-    }
-
-    private function setStep($nbr, $reader) {
-        if($this->from >= $this->step_total[$nbr] || $this->excel->counter >= Configuration::get('AJAXIMPORT_NBR_PRODUCTS'))
-            return;
-
-        if($this->excel->counter)
-        if($count && $this->from) {
-            $this->step = $nbr;
-
-            switch ($nbr) {
-                case 1:
-                    $this->messages .= $this->xml->setCategories($reader, $this->from);
-                    break;
-                case 2:
-                    $this->messages .= $this->xml->setFeatures($reader, $this->from);
-                    break;
-                case 3:
-                    $this->messages .= $this->xml->setProducts($reader, $this->from);
-                    break;
-                case 4:
-                    $this->messages .= $this->xml->updateProductPrice($reader, $this->from);
-                    break;
-                case 5:
-                    $this->messages .= $this->excel->parseExcel($reader, $this->from);
-                    break;
-                default:
-                    die('!Error');
-                    break;
-            }
-
-            $this->from += Configuration::get('AJAXIMPORT_NBR_PRODUCTS');
-
-            if($this->from >= $count) {
-                $this->step++;
-                $this->from = 0;
-            }
-        }
     }
 
     private function createObjectReader($file = Null)
@@ -271,31 +189,18 @@ class ajaximport extends Module
         return $objPHPExcel;
     }
 
-    private function getTotal($reader)
-    {
-        $total = 0;
-
-        for ($i = 0; $i < $reader->getSheetCount(); $i++) {
-            $reader->setActiveSheetIndex($i);
-            $sheet =  $reader->getActiveSheet();
-            $total += $sheet->getHighestRow();
-        }
-
-        return $total;
-
-    }
-
     protected function parseFiles($file, $name) {
         $reader = $this->createObjectReader($file);
 
         for($i = 0; $i < $reader->getSheetCount(); $i++) {
             $reader->setActiveSheetIndex($i);
             $sheet = $reader->getActiveSheet();
-            for($j = $this->excel->excelColumns[$name]['line']; $j < $sheet->getHighestRow(); $j++) {
+            for($j = $this->excel->excelColumns[$name]['line']; $j <= $sheet->getHighestRow(); $j++) {
                 $result = array(
-                    'sheet' => (string)$sheet->getTitle(),
-                    'name' => (string)$sheet->getCellByColumnAndRow($this->excel->excelColumns[$name]['fields']['name'], $j)->getValue(),
-                    'reference' => (string)$sheet->getCellByColumnAndRow($this->excel->excelColumns[$name]['fields']['reference'], $j)->getValue(),
+                    'sheet' => trim((string)$sheet->getTitle()),
+                    'name' => trim((string)$sheet->getCellByColumnAndRow($this->excel->excelColumns[$name]['fields']['name'], $j)->getValue()),
+                    'reference' => trim((string)$sheet->getCellByColumnAndRow
+                ($this->excel->excelColumns[$name]['fields']['reference'], $j)->getValue()),
                     'price' => (float)$sheet->getCellByColumnAndRow($this->excel->excelColumns[$name]['fields']['price'], $j)->getValue()
                 );
 
@@ -304,11 +209,12 @@ class ajaximport extends Module
 
                 if(isset($this->excel->excelColumns[$name]['fields']['features'])) {
                     foreach ($this->excel->excelColumns[$name]['fields']['features'] as $feature) {
-                        $result['features'][] = $sheet->getCellByColumnAndRow($feature, $j)->getValue();
+                        $result['features'][trim((string)$sheet->getCellByColumnAndRow($feature, 1)->getValue())] =
+                            trim((string)$sheet->getCellByColumnAndRow($feature, $j)->getValue());
                     }
                 }
 
-                $this->lines[] = $result;
+                $this->lines[$result['reference']] = $result;
             }
         }
     }

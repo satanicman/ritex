@@ -71,4 +71,61 @@ class AjaxImportModel extends ObjectModel
         }
         return true;
     }
+
+
+    /**
+     * Получить идентификатор значения свойства по названию
+     * @param string $name
+     * @param int $id_feature
+     * @return bool|int
+     */
+    public function getFeatureValueByName($name, $id_feature) {
+        if(!$name)
+            return false;
+
+        $sql = "SELECT MAX(fv.id_feature_value) 
+                  FROM `"._DB_PREFIX_."feature_value_lang` fvl
+                  INNER JOIN `"._DB_PREFIX_."feature_value` fv ON fv.`id_feature_value` = fvl.`id_feature_value` 
+                  AND `custom` LIKE 0
+                  AND fv.`id_feature` LIKE ".(int)$id_feature."
+                  WHERE fvl.`value` LIKE '".(string)$name."' 
+                  AND fvl.`id_lang` = ".$this->context->language->id;
+
+        return (int)Db::getInstance()->getValue($sql);
+    }
+
+
+    /**
+     * Получить идентификатор свойства по названию
+     * @param string $name
+     * @return bool|int
+     */
+    public function getFeatureByName($name) {
+        if(!$name)
+            return false;
+
+        $sql = "SELECT MAX(id_feature) 
+                  FROM `"._DB_PREFIX_."feature_lang` 
+                  WHERE `name` LIKE '".(string)$name."' 
+                  AND `id_lang` = ".(int)$this->context->language->id;
+
+        return (int)Db::getInstance()->getValue($sql);
+    }
+
+
+    /**
+     * Получить идентификатор товара по артикулу
+     * @param string $reference
+     * @return bool|int
+     */
+    public function getProductByReference($reference) {
+        if(!$reference)
+            return false;
+
+        $sql = "SELECT id_product 
+                  FROM `"._DB_PREFIX_."product` 
+                  WHERE `reference` LIKE '".(string)$reference."'";
+
+        return (int)Db::getInstance()->getValue($sql);
+    }
 }

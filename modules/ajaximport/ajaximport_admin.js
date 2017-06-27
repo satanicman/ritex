@@ -1,22 +1,18 @@
 function Counter() {
     this.count = 0;
     this.total = 0;
-    this.stepCount = 0;
-    this.step = 0;
 }
 
 Counter.prototype = {
     setTotal: function(total) {
-        this.total = total;
+        if(this.total < total)
+            this.total = total;
     },
     upCount: function(count) {
         this.count += count;
     },
-    setStep: function(step) {
-        this.step = step;
-    },
-    setStepCount: function(stepCount) {
-        this.stepCount = stepCount;
+    setValues: function(values) {
+        this.values = values;
     }
 };
 
@@ -42,9 +38,8 @@ $(document).ready(function(){
 
 
     function importFile(formData, object) {
-        console.log('run');
-        formData.append('step_count', object.stepCount);
-        formData.append('step', object.step);
+        if(typeof object.values !== 'undefined')
+            formData.append('values', JSON.stringify(object.values));
 
         $.ajax({
             url : '/modules/ajaximport/ajaximport-ajax.php',
@@ -54,19 +49,16 @@ $(document).ready(function(){
             processData: false,
             contentType: false,
             success : function(data) {
-                if(data.answer) {
-                    object.setTotal(data.total);
-                    object.upCount(data.count);
-                    object.setStep(data.step);
-                    object.setStepCount(data.step_count);
+                object.setTotal(data.total);
+                object.setValues(data.values);
+                object.upCount(data.count);
 
-                    $('#progress').prepend(data.answer);
-                    $('#progressbar').attr('max', object.total);
-                    $('#progressbar').val(object.count);
+                $('#progress').prepend(data.message);
+                $('#progressbar').attr('max', object.total);
+                $('#progressbar').val(object.count);
 
-                    if(object.count < object.total)
-                        importFile(formData, object);
-                }
+                if(Object.keys(object.values).length)
+                    importFile(formData, object);
             }
         });
 
