@@ -319,6 +319,13 @@ class Homepagefilter extends Module
             foreach ($values as &$value) {
                 $f = Feature::getFeature($this->context->language->id, $value['id_feature']);
                 $value['feature_url'] = str_replace('-', '_', Tools::link_rewrite($f['name']));
+
+                $image = _PS_IMG_DIR_.'f/'.$value['id_feature_value'];
+                $image_url = ImageManager::thumbnail($image.'.png', 'feature_value_'.(int)$value['id_feature_value'].'.jpg', 350, 'jpg', true, true);
+                if(!$image_url)
+                    $image_url = ImageManager::thumbnail($image.'.jpg', (int)$value['id_feature_value'].'.jpg', 350, 'jpg', true, true);
+
+                $value['image'] = $image_url ? $image_url : false;
             }
             $features[$id]['values'] = $values;
         }
