@@ -20,14 +20,11 @@ class HomecategoriesOverride extends Homecategories
 
     protected function getCategories()
     {
-        $root_cat = Category::getRootCategory($this->context->cookie->id_lang);
+        $root_cat = new Category(12);
         $categories = $root_cat->getSubCategories($this->context->cookie->id_lang);
         $result = array();
 
         foreach ($categories as $category) {
-            if($category['id_category'] == 12)
-                continue;
-
             $c = new Category($category['id_category']);
             $category['children'] = $c->getSubCategories($this->context->cookie->id_lang);
             $result[] = $category;
