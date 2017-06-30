@@ -18,6 +18,7 @@ Counter.prototype = {
 
 $(document).ready(function(){
     $(document).on('submit', 'form', function(e) {
+        $('#module_form_submit_btn').prop('disabled', true);
         var formData = new FormData(),
             omega = $('#omega')[0].files[0],
             continental = $('#continental')[0].files[0],
@@ -59,6 +60,8 @@ $(document).ready(function(){
 
                 if(Object.keys(object.values).length)
                     importFile(formData, object);
+                else
+                    $('#module_form_submit_btn').prop('disabled', false);
             }
         });
 
