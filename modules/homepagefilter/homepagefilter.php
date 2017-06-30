@@ -14,7 +14,7 @@ class Homepagefilter extends Module
         $this->name = 'homepagefilter';
         $this->tab = 'other';
         $this->version = '0.1';
-        $this->author = 'vk.com/id24260100';
+        $this->author = 'http://vk.com/id24260100';
         $this->need_instance = 0;
         $this->ps_versions_compliancy = array('min' => '1.6', 'max' => _PS_VERSION_);
         $this->bootstrap = true;
