@@ -138,6 +138,7 @@ class ajaximport extends Module
     }
 
     public function ajaxCall() {
+        Configuration::updateValue('AJAXIMPORT_CATEGORY', 12);
         $this->lines = Tools::getValue('values', array());
         $this->excel = new ImportExcel();
         $import = false;
@@ -201,7 +202,7 @@ class ajaximport extends Module
                     'name' => trim((string)$sheet->getCellByColumnAndRow($this->excel->excelColumns[$name]['fields']['name'], $j)->getValue()),
                     'reference' => trim((string)$sheet->getCellByColumnAndRow
                 ($this->excel->excelColumns[$name]['fields']['reference'], $j)->getValue()),
-                    'price' => (float)$sheet->getCellByColumnAndRow($this->excel->excelColumns[$name]['fields']['price'], $j)->getValue()
+                    'price' => (float)$sheet->getCellByColumnAndRow($this->excel->excelColumns[$name]['fields']['price'], $j)->getCalculatedValue()
                 );
 
                 if(!$result['name'] || !$result['reference'] || !$result['price'])

@@ -17,7 +17,7 @@ class ImportExcel extends AjaxImportModel
             'fields' => array(
                 'name' => 4,
                 'reference' => 1,
-                'price' => 13
+                'price' => 14
             )
         )
     );
@@ -40,7 +40,7 @@ class ImportExcel extends AjaxImportModel
                 $p->name = (string)$product->name;
                 $p->link_rewrite = Tools::link_rewrite((string)$product->name);
                 $p->reference = (string)$product->reference;
-                $categories[]['id'] = $p->id_category_default = Configuration::get('PS_HOME_CATEGORY');
+                $categories[]['id'] = $p->id_category_default = Configuration::get('AJAXIMPORT_CATEGORY');
             }
             $p->price = (float)$product->price;
 
