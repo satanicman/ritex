@@ -1,9 +1,11 @@
 $(document).ready(function () {
-    $(document).on('change', '.tires-calc-col__input, .tires-calc-col__select', function() {
+    $(document).on('click', '.tires-calc-col__btn', function() {
         var href = '';
-        if(!haveEmpty()) {
             href += $('#tire-calc-category-url').val() + '#';
             $('.tires-calc-col__select').each(function() {
+                if(!$(this).val())
+                    return;
+
                 href += '/' + $(this).val();
             });
             $('.tires-calc-col__input:checked').each(function() {
@@ -12,7 +14,6 @@ $(document).ready(function () {
 
             if(href)
                 location.href = href;
-        }
     })
 });
 

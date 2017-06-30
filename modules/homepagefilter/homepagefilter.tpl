@@ -47,6 +47,9 @@
                                                 </select>
                                             </li>
                                 {if $smarty.foreach.features.index == $features|@count - 1}
+                                            <li class="tires-calc-col__itemрщ">
+                                                <button class="btn btn_orange tires-calc-col__btn" id="tires-calc-col-item">{l s="Найти" mod="homepagefilter"}</button>
+                                            </li>
                                         </ul>
                                     </div>
                                 {/if}
