@@ -184,16 +184,17 @@ function ProductTabsManager(){
 					return false;
 				}
 				else if (!self.has_error_loading_tabs && (self.stack_done.length === self.tabs_to_preload.length)) {
-						$('[name="submitAddproductAndStay"]').each(function() {
-							$(this).prop('disabled', false).find('i').removeClass('process-icon-loading').addClass('process-icon-save');
-						});
-						$('[name="submitAddproduct"]').each(function() {
-							$(this).prop('disabled', false).find('i').removeClass('process-icon-loading').addClass('process-icon-save');
-						});
 						this.allow_hide_other_languages = true;
 						clearTimeout(tabs_running_timeout);
 						return false;
 					}
+
+                $('[name="submitAddproductAndStay"]').each(function() {
+                    $(this).prop('disabled', false).find('i').removeClass('process-icon-loading').addClass('process-icon-save');
+                });
+                $('[name="submitAddproduct"]').each(function() {
+                    $(this).prop('disabled', false).find('i').removeClass('process-icon-loading').addClass('process-icon-save');
+                });
 				return true;
 			});
 		}
